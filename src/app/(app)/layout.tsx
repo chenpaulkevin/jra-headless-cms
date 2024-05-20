@@ -1,17 +1,17 @@
 import React from 'react'
 import './globals.scss'
-import { Inter } from 'next/font/google'
-
-const inter = Inter({
-  subsets: ['latin'],
-  display: 'swap',
-})
+import './globals.css'
+import { montserrat } from '@/assets/fonts'
+import { Header } from '@/app/(app)/_components/Header'
 
 /* Our app sits here to not cause any conflicts with payload's root layout  */
 const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   return (
-    <html className={inter.className}>
-      <body>{children}</body>
+    <html className={montserrat.className}>
+      <body>
+        <Header />
+        <main className="mt-40 lg:mt-44">{children}</main>
+      </body>
     </html>
   )
 }

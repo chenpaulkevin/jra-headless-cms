@@ -9,12 +9,19 @@
 export interface Config {
   collections: {
     users: User;
-    pages: Page;
     media: Media;
+    testimonials: Testimonial;
+    designModels: DesignModel;
+    categories: Category;
+    blog: Blog;
+    pages: Page;
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
   };
-  globals: {};
+  globals: {
+    header: Header;
+    footer: Footer;
+  };
   locale: null;
   user: User & {
     collection: 'users';
@@ -25,7 +32,10 @@ export interface Config {
  * via the `definition` "users".
  */
 export interface User {
-  id: string;
+  id: number;
+  firstName: string;
+  lastName: string;
+  role: 'admin' | 'developer' | 'author';
   updatedAt: string;
   createdAt: string;
   email: string;
@@ -39,12 +49,52 @@ export interface User {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "pages".
+ * via the `definition` "media".
  */
-export interface Page {
-  id: string;
-  title?: string | null;
-  content?: {
+export interface Media {
+  id: number;
+  alt: string;
+  createdBy?: (number | null) | User;
+  updatedAt: string;
+  createdAt: string;
+  url?: string | null;
+  thumbnailURL?: string | null;
+  filename?: string | null;
+  mimeType?: string | null;
+  filesize?: number | null;
+  width?: number | null;
+  height?: number | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "testimonials".
+ */
+export interface Testimonial {
+  id: number;
+  customerName: string;
+  customerRating: '5' | '4' | '3' | '2' | '1';
+  service: string;
+  title: string;
+  testimonialDescription: string;
+  customerImage?: number | Media | null;
+  slug?: string | null;
+  createdBy?: (number | null) | User;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "designModels".
+ */
+export interface DesignModel {
+  id: number;
+  title: string;
+  description: string;
+  floorArea: number;
+  bedrooms: number;
+  comfortRooms: number;
+  category: 'bungalow' | 'Two Story' | 'Three Story';
+  content: {
     root: {
       type: string;
       children: {
@@ -58,36 +108,218 @@ export interface Page {
       version: number;
     };
     [k: string]: unknown;
-  } | null;
+  };
+  featuredImage: number | Media;
+  floorPlanImage: number | Media;
+  slider: {
+    image: number | Media;
+    alt: string;
+    id?: string | null;
+  }[];
+  slug?: string | null;
+  createdBy?: (number | null) | User;
   updatedAt: string;
   createdAt: string;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "media".
+ * via the `definition` "categories".
  */
-export interface Media {
-  id: string;
-  text?: string | null;
+export interface Category {
+  id: number;
+  title: string;
+  slug?: string | null;
+  createdBy?: (number | null) | User;
   updatedAt: string;
   createdAt: string;
-  url?: string | null;
-  thumbnailURL?: string | null;
-  filename?: string | null;
-  mimeType?: string | null;
-  filesize?: number | null;
-  width?: number | null;
-  height?: number | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "blog".
+ */
+export interface Blog {
+  id: number;
+  title: string;
+  description: string;
+  categories: number | Category;
+  readTime: number;
+  blogImage: number | Media;
+  blogContent: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  };
+  slug?: string | null;
+  createdBy?: (number | null) | User;
+  updatedAt: string;
+  createdAt: string;
+  _status?: ('draft' | 'published') | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "pages".
+ */
+export interface Page {
+  id: number;
+  title: string;
+  layout?:
+    | (
+        | {
+            header: string;
+            description: string;
+            milestones: {
+              label: string;
+              value: number;
+              id?: string | null;
+            }[];
+            featuredImage: number | Media;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'about';
+          }
+        | {
+            blockHeader: string;
+            cta: {
+              ctaLabel: string;
+              ctaLink: number | Page;
+              id?: string | null;
+            }[];
+            mainFeature: number | Blog;
+            secondaryFeature: number | Blog;
+            thirdFeature: number | Blog;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'blogCollection';
+          }
+        | {
+            cards: {
+              label: string;
+              description: string;
+              image: number | Media;
+              id?: string | null;
+            }[];
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'cardWithTitle';
+          }
+        | {
+            header: string;
+            subheader?: string | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'centeredText';
+          }
+        | {
+            blockHeader: string;
+            blockDescription: string;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'designModelsGallery';
+          }
+        | {
+            image?: number | Media | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'fullWidthImage';
+          }
+        | {
+            header: string;
+            description: string;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'headerAndDescription';
+          }
+        | {
+            headline: string;
+            subHeadline: string;
+            ctaHeadline: string;
+            mainFeature: number | DesignModel;
+            secondFeature: number | DesignModel;
+            thirdFeature: number | DesignModel;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'hero';
+          }
+        | {
+            blockHeader: string;
+            blockDescription: string;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'infiniteBlogScroll';
+          }
+        | {
+            body?: {
+              root: {
+                type: string;
+                children: {
+                  type: string;
+                  version: number;
+                  [k: string]: unknown;
+                }[];
+                direction: ('ltr' | 'rtl') | null;
+                format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+                indent: number;
+                version: number;
+              };
+              [k: string]: unknown;
+            } | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'simpleRichText';
+          }
+        | {
+            blockHeader: string;
+            blockDescription: string;
+            firstTestimonial: number | Testimonial;
+            secondTestimonial: number | Testimonial;
+            thirdTestimonial: number | Testimonial;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'testimonialsBlock';
+          }
+        | {
+            header: string;
+            subheader?: string | null;
+            featuredImage: number | Media;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'twoColumnImageLeft';
+          }
+        | {
+            header: string;
+            subheader?: string | null;
+            featuredImage: number | Media;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'twoColumnImageRight';
+          }
+      )[]
+    | null;
+  slug?: string | null;
+  createdBy?: (number | null) | User;
+  updatedAt: string;
+  createdAt: string;
+  _status?: ('draft' | 'published') | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-preferences".
  */
 export interface PayloadPreference {
-  id: string;
+  id: number;
   user: {
     relationTo: 'users';
-    value: string | User;
+    value: number | User;
   };
   key?: string | null;
   value?:
@@ -107,11 +339,60 @@ export interface PayloadPreference {
  * via the `definition` "payload-migrations".
  */
 export interface PayloadMigration {
-  id: string;
+  id: number;
   name?: string | null;
   batch?: number | null;
   updatedAt: string;
   createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "header".
+ */
+export interface Header {
+  id: number;
+  logo: number | Media;
+  cta: {
+    ctaLabel: string;
+    ctaLink: number | Page;
+    id?: string | null;
+  }[];
+  navLinks: {
+    label: string;
+    link: number | Page;
+    id?: string | null;
+  }[];
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "footer".
+ */
+export interface Footer {
+  id: number;
+  logo: number | Media;
+  title: string;
+  subheader: string;
+  motto?: string | null;
+  quickLinks: {
+    label: string;
+    link: number | Page;
+    id?: string | null;
+  }[];
+  location: {
+    city: string;
+    streetAddress: string;
+    id?: string | null;
+  }[];
+  socialMediaLinks: {
+    name: string;
+    icon: number | Media;
+    url: string;
+    id?: string | null;
+  }[];
+  updatedAt?: string | null;
+  createdAt?: string | null;
 }
 
 

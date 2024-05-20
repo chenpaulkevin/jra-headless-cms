@@ -1,0 +1,131 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #ff5a5f;
+  --white: #f8f8f8;
+  --black: #222222;
+  --gray: #636363;
+  --lightGray: #ededed;
+}
+body {
+  background-color: var(--white);
+}
+
+.header-clamp {
+  font-size: clamp(3.2em, 4.4vw, 6.5em);
+}
+.title-clamp {
+  font-size: clamp(2.5em, 3vw, 4em);
+}
+.blog-title-clamp {
+  font-size: clamp(2em, 1.5vw, 4em);
+}
+.card-title-clamp {
+  font-size: clamp(1.5em, 1.1vw, 2em);
+}
+.line-top {
+  height: 1.5px;
+  background-color: var(--white);
+  position: absolute;
+  transform: translateY(-0.5rem);
+  transition: 0.4s;
+}
+.line-mid {
+  height: 1.5px;
+  background-color: var(--white);
+}
+.line-bot {
+  height: 1.5px;
+  background-color: var(--white);
+  position: absolute;
+  transform: translateY(0.5rem);
+}
+.open .line-top {
+  animation: openMenuTop 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
+  animation-iteration-count: 1; /* Set it to 1 to stop the animation at 100% */
+  animation-fill-mode: forwards;
+}
+.close .line-top {
+  animation: closeMenuTop 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
+  animation-iteration-count: 1; /* Set it to 1 to stop the animation at 100% */
+  animation-fill-mode: forwards;
+}
+
+.open .line-mid {
+  opacity: 0;
+  transition-delay: 0.22s;
+}
+
+.open .line-bot {
+  animation: openMenuBot 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
+  animation-iteration-count: 1; /* Set it to 1 to stop the animation at 100% */
+  animation-fill-mode: forwards;
+}
+.close .line-bot {
+  animation: closeMenuBot 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
+  animation-iteration-count: 1; /* Set it to 1 to stop the animation at 100% */
+  animation-fill-mode: forwards;
+}
+
+@keyframes openMenuTop {
+  0% {
+    transform: translate(0, -0.5rem);
+  }
+  50% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(0, 0rem) rotate(45deg);
+  }
+}
+@keyframes closeMenuTop {
+  0% {
+    transform: translate(0, 0) rotate(45deg);
+  }
+  50% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(0, -0.5rem) rotate(0deg);
+  }
+}
+@keyframes openMenuBot {
+  0% {
+    transform: translate(0, 0.5rem);
+  }
+  50% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(0, 0) rotate(-45deg);
+  }
+}
+@keyframes closeMenuBot {
+  0% {
+    transform: translate(0, 0) rotate(-45deg);
+  }
+  50% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(0, 0.5rem) rotate(0deg);
+  }
+}
+
+ol {
+  padding-left: 40px;
+  font-size: 18px;
+}
+
+.embla {
+  overflow: hidden;
+}
+.embla__container {
+  display: flex;
+}
+.embla__slide {
+  flex: 0 0 100%;
+  min-width: 0;
+}
