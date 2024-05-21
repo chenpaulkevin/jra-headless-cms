@@ -53,7 +53,7 @@ const nextConfig = {
     // Set the `Content-Security-Policy` header as a security measure to prevent XSS attacks
     // It works by explicitly whitelisting trusted sources of content for your website
     // This will block all inline scripts and styles except for those that are allowed
-    headers.push({
+    /*headers.push({
       source: '/(.*)',
       headers: [
         {
@@ -61,7 +61,7 @@ const nextConfig = {
           value: policies,
         },
       ],
-    })
+    })*/
 
     return headers
   },
