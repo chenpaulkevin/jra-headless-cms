@@ -1,6 +1,11 @@
-import { CollectionConfig } from 'payload/types';
-import { isAdminOrAuthor } from '../access/isAdminOrAuthor';
-import createdBy from '../fields/createdBy';
+import path from 'path'
+import { CollectionConfig } from 'payload/types'
+import { isAdminOrAuthor } from '../access/isAdminOrAuthor'
+import createdBy from '../fields/createdBy'
+import { fileURLToPath } from 'url'
+
+const filename = fileURLToPath(import.meta.url)
+const dirname = path.dirname(filename)
 
 export type Type = {
   filename: string
@@ -9,13 +14,14 @@ export type Type = {
 
 export const Media: CollectionConfig = {
   slug: 'media',
-  access:{
+  access: {
     create: isAdminOrAuthor,
     read: () => true,
-    update: isAdminOrAuthor ,
+    update: isAdminOrAuthor,
     delete: isAdminOrAuthor,
   },
   upload: {
+    staticDir: path.resolve(dirname, '../../media'),
     crop: false,
     mimeTypes: ['image/*'],
     focalPoint: false,
@@ -24,8 +30,8 @@ export const Media: CollectionConfig = {
       options: {
         mozjpeg: true,
         progressive: true,
-        quality: 75
-      }
+        quality: 75,
+      },
     },
   },
   fields: [
@@ -38,22 +44,22 @@ export const Media: CollectionConfig = {
       defaultValue: 'Image',
       admin: {
         description: 'This will act as an alternative text if image cannot be loaded',
-      }
+      },
     },
-    createdBy
+    createdBy,
   ],
   hooks: {
     beforeChange: [
       ({ req, operation, data }) => {
         if (operation === 'create') {
           if (req.user) {
-            data.createdBy = req.user.id;
-            return data;
+            data.createdBy = req.user.id
+            return data
           }
         }
       },
     ],
   },
-};
+}
 
-export default Media;
+export default Media
