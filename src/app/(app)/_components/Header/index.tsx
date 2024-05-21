@@ -20,50 +20,55 @@ export async function Header() {
           <div className="logo w-1/3">
             <div className="relative w-52 h-24">
               <Link href="/">
-                <Image
-                  src={(header?.logo as { url?: string })?.url || ''}
-                  fill
-                  priority
-                  sizes="156px"
-                  alt={(header?.logo as { url?: string; alt?: string })?.alt || ''}
-                  className="object-contain"
-                ></Image>
+                {header.logo && (
+                  <Image
+                    src={(header?.logo as { url?: string })?.url || ''}
+                    fill
+                    priority
+                    sizes="156px"
+                    alt={(header?.logo as { url?: string; alt?: string })?.alt || ''}
+                    className="object-contain"
+                  ></Image>
+                )}
               </Link>
             </div>
           </div>
           <div className="gap-10 w-1/3 py-4 justify-center text-base font-semibold text-blackPrimary hidden lg:flex">
-            {header.navLinks.map((homeLinks, i) => {
-              if (
-                typeof homeLinks.link === 'object' &&
-                homeLinks.link !== null &&
-                'slug' in homeLinks.link
-              ) {
-                return (
-                  <div key={i}>
-                    <Link
-                      href={homeLinks.link?.slug === 'index' ? '/' : '/' + homeLinks.link?.slug}
-                    >
-                      {' '}
-                      {homeLinks.label}
-                    </Link>
-                  </div>
-                )
-              }
-            })}
+            {header?.navLinks &&
+              header?.navLinks.map((homeLinks, i) => {
+                if (
+                  typeof homeLinks.link === 'object' &&
+                  homeLinks.link !== null &&
+                  'slug' in homeLinks.link
+                ) {
+                  return (
+                    <div key={i}>
+                      <Link
+                        href={homeLinks.link?.slug === 'index' ? '/' : '/' + homeLinks.link?.slug}
+                      >
+                        {' '}
+                        {homeLinks.label}
+                      </Link>
+                    </div>
+                  )
+                }
+              })}
           </div>
           <div className="w-1/3 justify-end hidden lg:flex">
-            <PrimaryButton
-              url={
-                typeof header.cta[0].ctaLink === 'object' && 'slug' in header.cta[0].ctaLink
-                  ? header.cta[0].ctaLink.slug === 'index'
-                    ? '/'
-                    : '/' + header.cta[0].ctaLink.slug
-                  : ''
-              }
-              title={header.cta[0].ctaLabel}
-            ></PrimaryButton>
+            {header.cta[0] && (
+              <PrimaryButton
+                url={
+                  typeof header.cta[0].ctaLink === 'object' && 'slug' in header.cta[0].ctaLink
+                    ? header.cta[0].ctaLink.slug === 'index'
+                      ? '/'
+                      : '/' + header.cta[0].ctaLink.slug
+                    : ''
+                }
+                title={header.cta[0].ctaLabel}
+              ></PrimaryButton>
+            )}
           </div>
-          <MobileMenu header={header}></MobileMenu>
+          {header.cta[0] && <MobileMenu header={header}></MobileMenu>}
         </div>
       </div>
     </nav>
