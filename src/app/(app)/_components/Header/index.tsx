@@ -24,6 +24,7 @@ export async function Header() {
                   <Image
                     src={(header?.logo as { url?: string })?.url || ''}
                     fill
+                    unoptimized
                     priority
                     sizes="156px"
                     alt={(header?.logo as { url?: string; alt?: string })?.alt || ''}
