@@ -8,6 +8,7 @@ import { fileURLToPath } from 'url'
 import Icon from './src/components/Icon'
 import fav from './src/components/iconPrimary.svg'
 import Logo from './src/components/Logo'
+import { vercelBlobStorage } from '@payloadcms/storage-vercel-blob'
 //import seoPlugin from '@payloadcms/plugin-seo'
 //import formBuilder from '@payloadcms/plugin-form-builder'
 
@@ -40,7 +41,7 @@ export default buildConfig({
   db: postgresAdapter({
     pool: {
       max: 100,
-      connectionString: process.env.POSTGRES_URI || '',
+      connectionString: process.env.PRIVATE_NEON_POSTGRES_URI || '',
     },
   }),
   //db: mongooseAdapter({
@@ -80,5 +81,15 @@ export default buildConfig({
   // This is temporary - we may make an adapter pattern
   // for this before reaching 3.0 stable
   sharp,
-  plugins: [],
+  plugins: [
+    vercelBlobStorage({
+      enabled: true, // Optional, defaults to true
+      // Specify which collections should use Vercel Blob
+      collections: {
+        [Media.slug]: true,
+      },
+      // Token provided by Vercel once Blob storage is added to your Vercel project
+      token: process.env.BLOB_READ_WRITE_TOKEN || '',
+    }),
+  ],
 })
