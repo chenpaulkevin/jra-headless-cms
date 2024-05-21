@@ -32,8 +32,20 @@ export default buildConfig({
     features: ({ defaultFeatures }) => [...defaultFeatures, FixedToolbarFeature()],
   }),
   collections: [Users, Media, Testimonials, DesignModels, Categories, Blog, Pages],
-  cors: [process.env.PAYLOAD_PUBLIC_SERVER_URL || ''].filter(Boolean),
-  csrf: [process.env.PAYLOAD_PUBLIC_SERVER_URL || ''].filter(Boolean),
+  cors: [
+    'https://www.jrahomebuilderscorp.com',
+    'https://jrahomebuilderscorp.com',
+    //'http://localhost:3000',
+    'https://jra-headless-cms.vercel.app',
+    'https://www.jra-headless-cms.vercel.app/',
+  ].filter(Boolean),
+  csrf: [
+    'https://www.jrahomebuilderscorp.com',
+    'https://jrahomebuilderscorp.com',
+    //'http://localhost:3000',
+    'https://jra-headless-cms.vercel.app',
+    'https://www.jra-headless-cms.vercel.app/',
+  ].filter(Boolean),
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: {
     outputFile: path.resolve(dirname, 'payload-types.ts'),
