@@ -41,7 +41,7 @@ export default buildConfig({
   db: postgresAdapter({
     pool: {
       max: 100,
-      connectionString: process.env.PRIVATE_NEON_POSTGRES_URI || '',
+      connectionString: process.env.NEON_POSTGRES_URI || '',
     },
   }),
   //db: mongooseAdapter({
