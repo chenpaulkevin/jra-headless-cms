@@ -1,7 +1,6 @@
 import configPromise from '@payload-config'
 import Image from 'next/image'
 import Link from 'next/link'
-import { getPayload } from 'payload'
 import { getPayloadHMR } from '@payloadcms/next/utilities'
 import React from 'react'
 import type { Header } from '../../../../../payload-types'
@@ -27,7 +26,7 @@ export async function Header() {
                     unoptimized
                     priority
                     sizes="156px"
-                    alt={(header?.logo as { url?: string; alt?: string })?.alt || ''}
+                    alt={(header?.logo as { alt?: string })?.alt || ''}
                     className="object-contain"
                   ></Image>
                 )}

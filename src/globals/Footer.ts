@@ -37,6 +37,29 @@ export const Footer: GlobalConfig = {
       maxLength: 200,
     },
     {
+      label: 'Contact Page Button Image',
+      name: 'contactImageButton',
+      type: 'array',
+      maxRows: 1,
+      minRows: 1,
+      fields: [
+        {
+          label: 'Image Button',
+          name: 'imageButton',
+          type: 'upload',
+          required: true,
+          relationTo: 'media',
+        },
+        {
+          label: 'Link to Contact Page',
+          name: 'contactLink',
+          type: 'relationship',
+          required: true,
+          relationTo: 'pages',
+        },
+      ],
+    },
+    {
       label: 'Company Motto',
       name: 'motto',
       type: 'text',

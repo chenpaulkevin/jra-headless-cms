@@ -58,6 +58,7 @@ export const Hero: React.FC<HeroProps & { id?: string }> = (props) => {
           <div className="relative flex flex-col overflow-hidden justify-between w-full h-[300px] lg:h-3/5 rounded-3xl p-8 bg-slate-200 bg-center">
             <Image
               src={mainFeature.featuredImage.url}
+              unoptimized
               priority={true}
               fill
               className="z-0 object-cover"
@@ -80,6 +81,7 @@ export const Hero: React.FC<HeroProps & { id?: string }> = (props) => {
             <div className="relative overflow-hidden flex flex-col justify-between w-full lg:w-1/2 h-[300px] lg:h-full rounded-3xl p-8 bg-slate-200">
               <Image
                 src={secondFeature?.featuredImage.url || ''}
+                unoptimized
                 priority={true}
                 fill
                 className="z-0 object-cover"
@@ -101,6 +103,7 @@ export const Hero: React.FC<HeroProps & { id?: string }> = (props) => {
             <div className="relative overflow-hidden flex flex-col justify-between w-full lg:w-1/2 h-[300px] lg:h-full rounded-3xl p-8 bg-slate-200">
               <Image
                 src={thirdFeature?.featuredImage.url || ''}
+                unoptimized
                 priority={true}
                 fill
                 className="z-0 object-cover"

@@ -374,6 +374,13 @@ export interface Footer {
   logo: number | Media;
   title: string;
   subheader: string;
+  contactImageButton?:
+    | {
+        imageButton: number | Media;
+        contactLink: number | Page;
+        id?: string | null;
+      }[]
+    | null;
   motto?: string | null;
   quickLinks: {
     label: string;
