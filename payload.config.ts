@@ -6,7 +6,7 @@ import { buildConfig } from 'payload/config'
 import sharp from 'sharp'
 import { fileURLToPath } from 'url'
 import Icon from './src/components/Icon'
-import fav from './src/components/iconPrimary.svg'
+import fav from './public/iconPrimary.svg'
 import Logo from './src/components/Logo'
 import { vercelBlobStorage } from '@payloadcms/storage-vercel-blob'
 //import seoPlugin from '@payloadcms/plugin-seo'
@@ -35,14 +35,14 @@ export default buildConfig({
   cors: [
     'https://www.jrahomebuilderscorp.com',
     'https://jrahomebuilderscorp.com',
-    //'http://localhost:3000',
+    'http://localhost:3000',
     'https://jra-headless-cms.vercel.app',
     'https://www.jra-headless-cms.vercel.app/',
   ].filter(Boolean),
   csrf: [
     'https://www.jrahomebuilderscorp.com',
     'https://jrahomebuilderscorp.com',
-    //'http://localhost:3000',
+    'http://localhost:3000',
     'https://jra-headless-cms.vercel.app',
     'https://www.jra-headless-cms.vercel.app/',
   ].filter(Boolean),
