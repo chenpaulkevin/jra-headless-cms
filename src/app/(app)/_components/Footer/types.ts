@@ -11,6 +11,14 @@ type Media = {
   createdAt: string
 }
 
+type contactImageButton = {
+  contactLink?: string
+  imageButton?: {
+    url?: string
+    alt?: string
+  }
+}
+
 type quickLinks = {
   label: string
   link: string
@@ -23,4 +31,5 @@ export type FooterProps = {
   subheader: string
   motto?: string | null
   logo: Media
+  contactImage?: contactImageButton
 }

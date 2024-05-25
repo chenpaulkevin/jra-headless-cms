@@ -11,6 +11,9 @@ import { BlogCollection } from '../../_blocks/BlogCollection'
 import { CardWithTitle } from '../../_blocks/CardWithTitle'
 import { FullWidthImage } from '../../_blocks/FullWidthImage'
 import { Testimonials } from '../../_blocks/Testimonials'
+import { TwoColumnImageLeft } from '../../_blocks/TwoColumnImageLeft'
+import { TwoColumnImageRight } from '../../_blocks/TwoColumnImageRight'
+import { DesignModelsGallery } from '../../_blocks/DesignModelsGallery'
 
 export type AdditionalBlockProps = {
   blockIndex: number
@@ -26,6 +29,9 @@ const blockComponents = {
   cardWithTitle: CardWithTitle,
   fullWidthImage: FullWidthImage,
   testimonialsBlock: Testimonials,
+  twoColumnImageLeft: TwoColumnImageLeft,
+  twoColumnImageRight: TwoColumnImageRight,
+  designModelsGallery: DesignModelsGallery,
 }
 
 const Blocks = ({ blocks, locale }: any) => {

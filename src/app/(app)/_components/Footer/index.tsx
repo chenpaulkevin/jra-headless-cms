@@ -26,21 +26,19 @@ export async function Footer() {
           </div>
           {footer.contactImageButton && (
             <div className="h-40 w-40 lg:w-56 lg:h-56 relative">
-              {footer.contactImageButton?.map((contact: any, i: any) => {
-                return (
-                  <Link key={i} href={contact.contactLink}>
-                    <Image
-                      unoptimized
-                      src={(contact?.contactImage as { url?: string })?.url || ''}
-                      alt={(contact?.contactImage as { alt?: string })?.alt || ''}
-                      fill
-                      loading="lazy"
-                      sizes="216px"
-                      className="object-contain"
-                    ></Image>
-                  </Link>
-                )
-              })}
+              <Link
+                href={(footer.contactImageButton[0]?.contactLink as { slug?: string })?.slug || ''}
+              >
+                <Image
+                  unoptimized
+                  src={(footer.contactImageButton[0]?.imageButton as { url?: string })?.url || ''}
+                  alt={(footer.contactImageButton[0]?.imageButton as { alt?: string })?.alt || ''}
+                  fill
+                  loading="lazy"
+                  sizes="216px"
+                  className="object-contain"
+                ></Image>
+              </Link>
             </div>
           )}
         </div>

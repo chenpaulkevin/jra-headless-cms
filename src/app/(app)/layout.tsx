@@ -9,7 +9,7 @@ import { Footer } from '@/app/(app)/_components/Footer'
 const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   return (
     <html className={montserrat.className}>
-      <body>
+      <body className="flex justify-between flex-col min-h-screen">
         <Header />
         <main className="mt-40 lg:mt-44">{children}</main>
         <Footer />
