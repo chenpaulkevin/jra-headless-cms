@@ -7,6 +7,7 @@ import { orbitron } from '@/assets/fonts'
 import PrimaryButton from '../../_components/PrimaryButton'
 import SecondaryButton from '../../_components/SecondaryButton'
 import SecondaryButtonSmall from '../../_components/SecondaryMiniButton'
+import ImageLoader from '../../_components/ImageLoader'
 
 export const Hero: React.FC<HeroProps & { id?: string }> = (props) => {
   const { id, headline, subHeadline, ctaHeadline, mainFeature, secondFeature, thirdFeature } = props
@@ -55,16 +56,11 @@ export const Hero: React.FC<HeroProps & { id?: string }> = (props) => {
           </div>
         </div>
         <div className="flex flex-col w-full lg:w-1/2 h-fit lg:h-full gap-8">
-          <div className="relative flex flex-col overflow-hidden justify-between w-full h-[300px] lg:h-3/5 rounded-3xl p-8 bg-slate-200 bg-center">
-            <Image
-              src={mainFeature.featuredImage.url}
-              unoptimized
-              priority={true}
-              fill
-              className="z-0 object-cover"
-              sizes="(min-width: 1540px) 708px, (min-width: 1280px) 604px, (min-width: 1040px) 476px, (min-width: 780px) 720px, (min-width: 680px) 592px, calc(94.44vw - 31px)"
-              alt={mainFeature.featuredImage.alt}
-            ></Image>
+          <div className="relative flex flex-col overflow-hidden justify-between w-full h-[300px] lg:h-3/5 rounded-3xl p-8 bg-center">
+            <ImageLoader
+              src={mainFeature.featuredImage.url || ''}
+              alt={mainFeature.featuredImage.alt || ''}
+            />
             <div className="w-fit z-[3]">
               <div className="px-4 py-2 uppercase text-sm bg-blackPrimary text-white rounded-lg">
                 {mainFeature.title}
@@ -78,16 +74,11 @@ export const Hero: React.FC<HeroProps & { id?: string }> = (props) => {
             </div>
           </div>
           <div className="flex flex-col lg:flex-row w-full h-2/5 rounded-3xl gap-8">
-            <div className="relative overflow-hidden flex flex-col justify-between w-full lg:w-1/2 h-[300px] lg:h-full rounded-3xl p-8 bg-slate-200">
-              <Image
+            <div className="relative overflow-hidden flex flex-col justify-between w-full lg:w-1/2 h-[300px] lg:h-full rounded-3xl p-8">
+              <ImageLoader
                 src={secondFeature?.featuredImage.url || ''}
-                unoptimized
-                priority={true}
-                fill
-                className="z-0 object-cover"
-                sizes="(min-width: 1540px) 342px, (min-width: 1280px) 290px, (min-width: 1040px) 226px, (min-width: 780px) 720px, (min-width: 680px) 592px, calc(94.44vw - 31px)"
                 alt={secondFeature?.featuredImage.alt || ''}
-              ></Image>
+              />
               <div className="w-fit z-[3]">
                 <div className="px-4 py-2 uppercase text-sm bg-blackPrimary text-white rounded-lg">
                   {secondFeature?.title}
@@ -100,16 +91,11 @@ export const Hero: React.FC<HeroProps & { id?: string }> = (props) => {
                 ></SecondaryButtonSmall>
               </div>
             </div>
-            <div className="relative overflow-hidden flex flex-col justify-between w-full lg:w-1/2 h-[300px] lg:h-full rounded-3xl p-8 bg-slate-200">
-              <Image
+            <div className="relative overflow-hidden flex flex-col justify-between w-full lg:w-1/2 h-[300px] lg:h-full rounded-3xl p-8">
+              <ImageLoader
                 src={thirdFeature?.featuredImage.url || ''}
-                unoptimized
-                priority={true}
-                fill
-                className="z-0 object-cover"
-                sizes="(min-width: 1540px) 342px, (min-width: 1280px) 290px, (min-width: 1040px) 226px, (min-width: 780px) 720px, (min-width: 680px) 592px, calc(94.44vw - 31px)"
                 alt={thirdFeature?.featuredImage.alt || ''}
-              ></Image>
+              />
               <div className="w-fit z-[3]">
                 <div className="px-4 py-2 uppercase text-sm bg-blackPrimary text-white rounded-lg">
                   {thirdFeature?.title}
