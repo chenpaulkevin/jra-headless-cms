@@ -53,7 +53,10 @@ export default buildConfig({
   db: postgresAdapter({
     pool: {
       max: 100,
-      connectionString: process.env.NEON_POSTGRES_URI || '',
+      connectionString:
+        process.env.NEXT_PUBLIC_IS_LIVE === 'true'
+          ? process.env.NEON_POSTGRES_URI || ''
+          : process.env.POSTGRES_URI || '',
     },
   }),
   //db: mongooseAdapter({
@@ -95,7 +98,7 @@ export default buildConfig({
   sharp,
   plugins: [
     vercelBlobStorage({
-      enabled: true, // Optional, defaults to true
+      enabled: process.env.NEXT_PUBLIC_IS_LIVE === 'true' ? true : false, // Optional, defaults to true
       // Specify which collections should use Vercel Blob
       collections: {
         [Media.slug]: true,
