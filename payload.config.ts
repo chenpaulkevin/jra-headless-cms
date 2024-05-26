@@ -1,7 +1,7 @@
 import path from 'path'
 import { postgresAdapter } from '@payloadcms/db-postgres'
 import { en } from 'payload/i18n/en'
-import { lexicalEditor, FixedToolbarFeature } from '@payloadcms/richtext-lexical'
+import { lexicalEditor, FixedToolbarFeature, LinkFeature } from '@payloadcms/richtext-lexical'
 import { buildConfig } from 'payload/config'
 import sharp from 'sharp'
 import { fileURLToPath } from 'url'
@@ -29,7 +29,27 @@ const dirname = path.dirname(filename)
 export default buildConfig({
   //editor: slateEditor({}),
   editor: lexicalEditor({
-    features: ({ defaultFeatures }) => [...defaultFeatures, FixedToolbarFeature()],
+    features: ({ defaultFeatures }) => [
+      ...defaultFeatures,
+      FixedToolbarFeature(),
+      LinkFeature({
+        // Example showing how to customize the built-in fields
+        // of the Link feature
+        fields: [
+          {
+            name: 'rel',
+            label: 'Rel Attribute',
+            type: 'select',
+            hasMany: true,
+            options: ['noopener', 'noreferrer', 'nofollow'],
+            admin: {
+              description:
+                'The rel attribute defines the relationship between a linked resource and the current document. This is a custom link field.',
+            },
+          },
+        ],
+      }),
+    ],
   }),
   collections: [Users, Media, Testimonials, DesignModels, Categories, Blog, Pages],
   cors: [
