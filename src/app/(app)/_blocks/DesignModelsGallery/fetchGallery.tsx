@@ -2,7 +2,6 @@ import { DesignModel } from '~/payload-types'
 import { getPayloadHMR } from '@payloadcms/next/utilities'
 import configPromise from '@payload-config'
 import GalleryCard from '../../_components/GalleryCard'
-import { DesignModelsGalleryProps } from './types'
 import Link from 'next/link'
 import React from 'react'
 

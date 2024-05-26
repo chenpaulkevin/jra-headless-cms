@@ -14,6 +14,8 @@ import { Testimonials } from '../../_blocks/Testimonials'
 import { TwoColumnImageLeft } from '../../_blocks/TwoColumnImageLeft'
 import { TwoColumnImageRight } from '../../_blocks/TwoColumnImageRight'
 import { DesignModelsGallery } from '../../_blocks/DesignModelsGallery'
+import { InfiniteBlogScroll } from '../../_blocks/InfiniteBlogScroll'
+import { SimpleRichText } from '../../_blocks/SimpleRichText'
 
 export type AdditionalBlockProps = {
   blockIndex: number
@@ -32,6 +34,8 @@ const blockComponents = {
   twoColumnImageLeft: TwoColumnImageLeft,
   twoColumnImageRight: TwoColumnImageRight,
   designModelsGallery: DesignModelsGallery,
+  infiniteBlogScroll: InfiniteBlogScroll,
+  simpleRichText: SimpleRichText,
 }
 
 const Blocks = ({ blocks, locale }: any) => {
