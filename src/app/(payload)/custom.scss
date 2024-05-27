@@ -4,3 +4,7 @@
 .template-minimal {
   background-color: black !important;
 }
+
+.editor-shell .fixed-toolbar {
+  z-index: 1 !important;
+}

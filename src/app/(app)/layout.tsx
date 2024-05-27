@@ -11,7 +11,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     <html className={montserrat.className}>
       <body className="flex justify-between flex-col min-h-screen">
         <Header />
-        <main className="mt-40 lg:mt-44">{children}</main>
+        <main className="mt-28 lg:mt-36">{children}</main>
         <Footer />
       </body>
     </html>

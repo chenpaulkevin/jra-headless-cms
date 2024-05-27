@@ -11,7 +11,7 @@ export default function MobileMenu({ header }: { header: any }) {
         <div
           onClick={() => setIsOpen(!isOpen)}
           className={
-            'h-16 w-16 z-[15] relative flex flex-col justify-center items-center bg-primary rounded-xl cursor-pointer ' +
+            'h-12 w-12 z-[15] relative flex flex-col justify-center items-center bg-primary rounded-xl cursor-pointer ' +
             (isOpen ? 'open' : 'close')
           }
         >

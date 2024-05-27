@@ -12,13 +12,18 @@ import ImageLoader from '../../_components/ImageLoader'
 export const Hero: React.FC<HeroProps & { id?: string }> = (props) => {
   const { id, headline, subHeadline, ctaHeadline, mainFeature, secondFeature, thirdFeature } = props
   return (
-    <section className="text-blackPrimary my-16">
+    <section className="text-blackPrimary my-4">
       <div className="flex flex-col lg:flex-row w-full h-fit lg:h-[750px] container gap-8 py-4">
         <div className="flex flex-col w-full lg:w-1/2 h-fit lg:h-full gap-12 lg:gap-8">
           <div className="flex flex-col w-full h-fit lg:h-3/5 rounded-3xl justify-between gap-8 lg:gap-4">
             <div className="flex flex-col w-full gap-8">
               {' '}
-              <h1 className={orbitron.className + ' header-clamp font-black leading-tight'}>
+              <h1
+                className={
+                  orbitron.className +
+                  ' md:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl font-black leading-tight'
+                }
+              >
                 {headline.split(' ').map((word, index) => {
                   if (index === 1) {
                     return (
@@ -35,7 +40,7 @@ export const Hero: React.FC<HeroProps & { id?: string }> = (props) => {
                   }
                 })}
               </h1>
-              <p className="md:text-base font-semibold text-gray w-full lg:w-5/6 leading-relaxed">
+              <p className="text-sm md:text-md lg:text-base font-semibold text-gray w-full lg:w-5/6 leading-relaxed">
                 {subHeadline}
               </p>
             </div>

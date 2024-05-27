@@ -17,7 +17,7 @@ export async function Header() {
       <div className="container my-8 mx-auto">
         <div className="outline outline-1 outline-lightGray bg-white py-3 lg:py-2 rounded-2xl px-4 lg:px-10 flex items-center justify-between shadow-sm">
           <div className="logo w-1/3">
-            <div className="relative w-52 h-24">
+            <div className="relative w-32 h-16 lg:w-52 lg:h-24">
               <Link href="/">
                 {header.logo && (
                   <Image

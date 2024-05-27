@@ -24,7 +24,7 @@ export default function TestimonialCard({
   }
   return (
     <>
-      <div className="flex flex-col w-full xl:w-1/3 bg-lightGray rounded-2xl py-6 px-10 h-fit xl:h-[400px]">
+      <div className="flex flex-col w-full xl:w-1/3 bg-lightGray rounded-2xl py-6 px-10 h-fit xl:min-h-[450px] h-fit">
         <h1 className="text-lg font-semibold">{title}</h1>
         <div className="text-xl text-primary flex gap-2 mb-4">{stars}</div>
         <div className="text-base">{description}</div>
