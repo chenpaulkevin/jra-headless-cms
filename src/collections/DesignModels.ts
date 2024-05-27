@@ -7,6 +7,7 @@ export const DesignModels: CollectionConfig = {
   slug: 'designModels',
   admin: {
     useAsTitle: 'title',
+    group: 'Design Models',
   },
   access: {
     create: isAdminOrAuthor,
@@ -65,23 +66,10 @@ export const DesignModels: CollectionConfig = {
         {
           label: 'Category',
           name: 'category',
-          type: 'select',
+          type: 'relationship',
           required: true,
-          defaultValue: 'bungalow',
-          options: [
-            {
-              label: 'Bungalow',
-              value: 'bungalow',
-            },
-            {
-              label: 'Two Story',
-              value: 'Two Story',
-            },
-            {
-              label: 'Three Story',
-              value: 'Three Story',
-            },
-          ],
+          relationTo: 'modelsCategories',
+          hasMany: false,
         },
       ],
     },

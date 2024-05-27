@@ -14,7 +14,7 @@ export default function BlogCard({
   blogImageUrl: string
   blogImageAlt: string
   createdAt: any
-  readTime: number
+  readTime: any
   title: string
   description: string
   categories: any

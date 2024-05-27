@@ -19,6 +19,7 @@ import { DesignModels } from './src/collections/DesignModels'
 import { Categories } from './src/collections/Categories'
 import { Blog } from './src/collections/Blog'
 import { Pages } from './src/collections/Pages'
+import { ModelsCategories } from './src/collections/ModelsCategories'
 
 import { Header } from './src/globals/Header'
 import { Footer } from './src/globals/Footer'
@@ -51,7 +52,16 @@ export default buildConfig({
       }),
     ],
   }),
-  collections: [Users, Media, Testimonials, DesignModels, Categories, Blog, Pages],
+  collections: [
+    Users,
+    Media,
+    Testimonials,
+    DesignModels,
+    ModelsCategories,
+    Categories,
+    Blog,
+    Pages,
+  ],
   cors: [
     'https://www.jrahomebuilderscorp.com',
     'https://jrahomebuilderscorp.com',
@@ -93,11 +103,6 @@ export default buildConfig({
   globals: [Header, Footer],
 
   admin: {
-    autoLogin: {
-      email: 'demo@apexcodeph.com',
-      password: '123demo',
-      prefillOnly: true,
-    },
     meta: {
       titleSuffix: ' - Apexcode CMS',
       icons: fav,

@@ -15,21 +15,23 @@ export default function BlogSkeleton() {
             <path d="M18 0H2a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2Zm-5.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm4.376 10.481A1 1 0 0 1 16 15H4a1 1 0 0 1-.895-1.447l3.5-7A1 1 0 0 1 7.468 6a.965.965 0 0 1 .9.5l2.775 4.757 1.546-1.887a1 1 0 0 1 1.618.1l2.541 4a1 1 0 0 1 .028 1.011Z" />
           </svg>
         </div>
-        <div className="w-full lg:w-2/5 flex flex-col gap-8">
+        <div className="w-full lg:w-2/5 flex flex-col gap-8 justify-between">
           <div className="w-full flex gap-8">
-            <div className="w-1/2 lg:w-[150px] h-10 lg:h-12 rounded-xl bg-slate-300 animate-pulse"></div>
-            <div className="w-1/2 lg:w-[150px] h-10 lg:h-12 rounded-xl bg-slate-200 animate-pulse"></div>
+            <div className="w-1/2 lg:w-[150px] h-8 lg:h-10 rounded-xl bg-slate-300 animate-pulse"></div>
+            <div className="w-1/2 lg:w-[150px] h-8 lg:h-10 rounded-xl bg-slate-200 animate-pulse"></div>
           </div>
-          <div className="flex flex-col gap-8 mt-4 lg:mt-8">
-            <div className="h-16 lg:h-20 bg-slate-300 rounded-xl animate-pulse"></div>
-            <div className="w-3/4 h-16 lg:h-20 bg-slate-200 rounded-xl animate-pulse"></div>
+          <div className="flex flex-col gap-8">
+            <div className="h-16  lg:h-16 bg-slate-300 rounded-xl animate-pulse"></div>
+            <div className="w-2/4 h-16 lg:h-16 bg-slate-200 rounded-xl animate-pulse"></div>
           </div>
-          <div className="flex flex-col gap-6 mt-4 lg:mt-8">
-            <div className="h-10 bg-slate-200 rounded-xl animate-pulse"></div>
-            <div className="h-10 bg-slate-300 rounded-xl animate-pulse"></div>
-            <div className="w-3/4 h-10 bg-slate-200 rounded-xl animate-pulse"></div>
+          <div className="flex flex-col gap-6 mb-16">
+            <div className="h-8 bg-slate-200 rounded-xl animate-pulse"></div>
+            <div className="h-8 bg-slate-300 rounded-xl animate-pulse"></div>
           </div>
-          <div className="h-10 w-1/2 bg-slate-300 rounded-xl animate-pulse justify-self-end mt-auto hidden lg:block"></div>
+          <div className="flex gap-4 justify-between">
+            <div className="w-2/4 h-4 bg-slate-200 rounded-xl animate-pulse"></div>
+            <div className="h-4 w-1/4 bg-slate-300 rounded-xl animate-pulse justify-self-end mt-auto hidden lg:block"></div>
+          </div>
         </div>
       </div>
     </>

@@ -73,7 +73,7 @@ export const Hero: React.FC<HeroProps & { id?: string }> = (props) => {
             </div>
             <div className="self-end z-[3]">
               <SecondaryButtonSmall
-                url={'/designModels/' + mainFeature.slug}
+                url={'/gallery/' + mainFeature.slug}
                 title={'View Model →'}
               ></SecondaryButtonSmall>
             </div>

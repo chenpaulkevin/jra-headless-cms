@@ -14,7 +14,7 @@ export default function GalleryCard({
   featuredImageAlt: string
   title: string
   categories: string
-  floorArea: number
+  floorArea: any
 }) {
   const [isLoaded, setIsLoaded] = useState(false)
 

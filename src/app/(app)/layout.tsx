@@ -4,6 +4,12 @@ import './globals.css'
 import { montserrat } from '@/assets/fonts'
 import { Header } from '@/app/(app)/_components/Header'
 import { Footer } from '@/app/(app)/_components/Footer'
+import axios from 'axios'
+
+axios.defaults.baseURL = process.env.NEXT_PRIVATE_BACKEND_URL
+axios.defaults.headers.post['Content-Type'] = 'application/json'
+axios.defaults.headers.patch['Content-Type'] = 'application/json'
+axios.defaults.withCredentials = true
 
 /* Our app sits here to not cause any conflicts with payload's root layout  */
 const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
