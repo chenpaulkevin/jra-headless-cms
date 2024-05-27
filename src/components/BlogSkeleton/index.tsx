@@ -29,8 +29,8 @@ export default function BlogSkeleton() {
             <div className="h-8 bg-slate-300 rounded-xl animate-pulse"></div>
           </div>
           <div className="flex gap-4 justify-between">
-            <div className="w-2/4 h-4 bg-slate-200 rounded-xl animate-pulse"></div>
-            <div className="h-4 w-1/4 bg-slate-300 rounded-xl animate-pulse justify-self-end mt-auto hidden lg:block"></div>
+            <div className="w-2/4 h-8 bg-slate-200 rounded-xl animate-pulse"></div>
+            <div className="h-8 w-1/4 bg-slate-300 rounded-xl animate-pulse justify-self-end mt-auto hidden lg:block"></div>
           </div>
         </div>
       </div>

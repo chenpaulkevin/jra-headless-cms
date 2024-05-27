@@ -167,7 +167,7 @@ export default function serializeLexicalRichText({
       if (node.type === 'horizontalrule') {
         return (
           <div
-            className="bg-lightGray h-[1.5px] w-full border-0 shadow-sm rounded-full"
+            className="bg-lightGray h-[1.5px] w-full border-0 shadow-sm rounded-full my-4"
             key={i}
           ></div>
         )

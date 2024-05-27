@@ -49,7 +49,6 @@ export const InfiniteBlogScroll: React.FC<InfiniteBlogScrollProps & { id?: strin
 
   useEffect(() => {
     const cancelTokenSource = axios.CancelToken.source()
-
     const fetchData = async () => {
       try {
         const [blogRes, categoryRes] = await Promise.all([
@@ -77,7 +76,7 @@ export const InfiniteBlogScroll: React.FC<InfiniteBlogScrollProps & { id?: strin
     return () => {
       cancelTokenSource.cancel('Component unmounted, cancelling request')
     }
-  }, [])
+  }, [loading])
 
   const handleFilter = debounce((search: string) => {
     if (data) {
@@ -111,8 +110,31 @@ export const InfiniteBlogScroll: React.FC<InfiniteBlogScrollProps & { id?: strin
       <section className="container">
         <HeaderTitleCard blockHeader={blockHeader} blockDescription={blockDescription} />
         <div className="flex flex-wrap gap-8 py-8 items-center justify-center">
-          <BlogSkeleton />
-          <BlogSkeleton />
+          <div className="w-full flex gap-8">
+            <input
+              className="w-3/4 p-4 form-control outline outline-1 rounded-xl outline-slate-300 text-blackPrimary text-base"
+              type="text"
+              placeholder="Search"
+              onChange={handleInputChange}
+            />
+            <select
+              className="w-1/4 p-4 form-control outline outline-1 rounded-xl outline-slate-300 text-blackPrimary text-md"
+              name="categories"
+              onChange={handleCategoryFilter}
+            >
+              <option value="All Categories">All Categories</option>
+              {categories &&
+                categories.docs.map((category, i) => (
+                  <option key={i} value={category.title}>
+                    {category.title}
+                  </option>
+                ))}
+            </select>
+          </div>
+          <div className="flex flex-col md:flex-wrap md:flex-row gallery-container gap-8 xl:gap-16 py-8 items-center justify-center min-h-[80dvh]">
+            <BlogSkeleton />
+            <BlogSkeleton />
+          </div>
         </div>
       </section>
     )
@@ -143,23 +165,25 @@ export const InfiniteBlogScroll: React.FC<InfiniteBlogScrollProps & { id?: strin
               ))}
           </select>
         </div>
-        {filteredData?.docs.map((blog, i) => (
-          <Link
-            href={'/blog/' + blog.slug}
-            key={i}
-            className="w-full flex items-center justify-center h-fit my-8"
-          >
-            <BlogCard
-              blogImageUrl={blog.blogImage.url}
-              blogImageAlt={blog.blogImage.alt}
-              createdAt={blog.createdAt}
-              readTime={blog.readTime}
-              title={blog.title}
-              description={blog.description}
-              categories={blog.categories.title}
-            />
-          </Link>
-        ))}
+        <div className="flex flex-col md:flex-wrap md:flex-row gallery-container gap-8 xl:gap-16 py-8 items-center justify-center min-h-[80dvh]">
+          {filteredData?.docs.map((blog, i) => (
+            <Link
+              href={'/blog/' + blog.slug}
+              key={i}
+              className="w-full flex items-center justify-center h-fit my-8"
+            >
+              <BlogCard
+                blogImageUrl={blog.blogImage.url}
+                blogImageAlt={blog.blogImage.alt}
+                createdAt={blog.createdAt}
+                readTime={blog.readTime}
+                title={blog.title}
+                description={blog.description}
+                categories={blog.categories.title}
+              />
+            </Link>
+          ))}
+        </div>
       </div>
     </section>
   )

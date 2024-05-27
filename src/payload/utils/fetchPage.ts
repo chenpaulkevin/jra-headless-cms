@@ -1,5 +1,4 @@
 import 'server-only'
-import { getPayload } from 'payload'
 import { getPayloadHMR } from '@payloadcms/next/utilities'
 import configPromise from '@payload-config'
 import { COLLECTION_SLUG_PAGE } from '@/collections/config'
