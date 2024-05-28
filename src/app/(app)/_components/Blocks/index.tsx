@@ -1,8 +1,5 @@
 import React from 'react'
 
-import type { Page } from '../../../../../payload-types'
-import { toKebabCase } from 'payload/utilities'
-
 import { CenteredText } from '../../_blocks/CenteredText'
 import { Hero } from '../../_blocks/Hero'
 import { About } from '../../_blocks/About'

@@ -6,7 +6,7 @@ export const revalidate = 0
 
 const Page = async ({ params }: { params: { slug: string } }) => {
   const page = await fetchPage(params.slug)
-  if (!page) {
+  if (page?.layout?.length !== 0) {
     return (
       <>
         <div className="flex h-screen">

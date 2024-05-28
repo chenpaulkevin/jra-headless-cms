@@ -13,7 +13,7 @@ export async function Footer() {
   })
   return (
     <>
-      {footer && (
+      {Object.keys(footer.quickLinks).length !== 0 && (
         <footer className="container">
           <div className="bg-primary w-full h-fit rounded-3xl mt-8 mb-16 p-8 lg:p-16 text-white">
             <div className="flex flex-col lg:flex-row justify-between items-start gap-12 lg:gap-0">

@@ -14,7 +14,7 @@ export async function Header() {
   })
   return (
     <>
-      {header && (
+      {Object.keys(header.navLinks).length !== 0 && (
         <nav className="fixed top-0 z-50 w-full mx-auto flex items-center justify-center">
           <div className="container my-8 mx-auto">
             <div className="outline outline-1 outline-lightGray bg-white py-3 lg:py-2 rounded-2xl px-4 lg:px-10 flex items-center justify-between shadow-sm">
