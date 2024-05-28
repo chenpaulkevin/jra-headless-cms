@@ -9,8 +9,8 @@ const Page = async ({ params }: { params: { slug: string } }) => {
   if (page?.layout?.length === 0) {
     return (
       <>
-        <div className="flex h-screen">
-          <div className="container w-full h-full flex justify-center items-center">
+        <div className="flex h-[400px]">
+          <div className="container w-full flex justify-center items-center">
             <h1
               className={
                 orbitron.className +
