@@ -5,8 +5,13 @@ import configPromise from '@payload-config'
 import { notFound } from 'next/navigation'
 import RichTextParser from '@/utilities/RichTextParser'
 import ImageLoader from '../../_components/ImageLoader'
+import type { Metadata } from 'next'
 
-export default async function page({ params }: { params: { slug: string } }) {
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string }
+}): Promise<Metadata> {
   const slug = params.slug
   const payload = await getPayloadHMR({ config: configPromise })
   const result = await payload.find({
@@ -14,12 +19,55 @@ export default async function page({ params }: { params: { slug: string } }) {
     where: { slug: { equals: slug } },
     depth: 2,
   })
-  if (result?.docs.length === 0) {
+
+  if (!result?.docs.length) {
+    return { title: 'JRA Home Builders | Home Contractor in Bacolod and Iloilo' }
+  }
+
+  const blog = result.docs[0]
+
+  return {
+    title:
+      (blog.meta as { title: string })?.title ||
+      'JRA Home Builders | Home Contractor in Bacolod and Iloilo',
+    description:
+      (blog.meta as { description: string })?.description ||
+      'JRA is a licensed contractor specializing in home building and renovation services.',
+    openGraph: {
+      title:
+        (blog.meta as { title: string })?.title ||
+        'JRA Home Builders | Home Contractor in Bacolod and Iloilo',
+      description:
+        (blog.meta as { description: string })?.description ||
+        'JRA is a licensed contractor specializing in home building and renovation services.',
+      images: [
+        {
+          url: (blog.blogImage as { url: string })?.url || '/ogImage.png',
+          width: 1280,
+          height: 1080,
+        },
+      ],
+    },
+  }
+}
+
+export default async function Page({ params }: { params: { slug: string } }) {
+  const slug = params.slug
+  const payload = await getPayloadHMR({ config: configPromise })
+  const result = await payload.find({
+    collection: 'blog',
+    where: { slug: { equals: slug } },
+    depth: 2,
+  })
+
+  if (!result?.docs.length) {
     notFound()
   }
-  const blog = result?.docs?.[0]
-  const date = new Date(blog?.createdAt)
+
+  const blog = result.docs[0]
+  const date = new Date(blog.createdAt)
   const articleDate = date.toLocaleDateString()
+
   return (
     <div className="container py-8 text-PrimaryBlack">
       <div className="flex flex-col justify-center items-center w-full gap-4 lg:px-28">

@@ -131,7 +131,7 @@ export const InfiniteBlogScroll: React.FC<InfiniteBlogScrollProps & { id?: strin
                 ))}
             </select>
           </div>
-          <div className="flex flex-col md:flex-wrap md:flex-row gallery-container gap-8 xl:gap-16 py-8 items-center justify-center min-h-[80dvh]">
+          <div className="flex flex-col md:flex-wrap md:flex-row gallery-container gap-8 xl:gap-16 py-8 justify-center min-h-[80dvh]">
             <BlogSkeleton />
             <BlogSkeleton />
           </div>
@@ -143,7 +143,7 @@ export const InfiniteBlogScroll: React.FC<InfiniteBlogScrollProps & { id?: strin
   return (
     <section className="container">
       <HeaderTitleCard blockHeader={blockHeader} blockDescription={blockDescription} />
-      <div className="flex flex-col items-center justify-center w-full h-fit text-blackPrimary gap-8">
+      <div className="flex flex-col justify-center w-full h-fit text-blackPrimary gap-8">
         <div className="w-full flex gap-8">
           <input
             className="w-3/4 p-4 form-control outline outline-1 rounded-xl outline-slate-300 text-blackPrimary text-base"
@@ -165,6 +165,11 @@ export const InfiniteBlogScroll: React.FC<InfiniteBlogScrollProps & { id?: strin
               ))}
           </select>
         </div>
+        {filteredData?.docs.length === 0 && (
+          <p className="blog-title-clamp text-primaryBlack w-full text-center pt-8">
+            No results found
+          </p>
+        )}
         <div className="flex flex-col md:flex-wrap md:flex-row gallery-container gap-8 xl:gap-16 py-8 items-center justify-center min-h-[80dvh]">
           {filteredData?.docs.map((blog, i) => (
             <Link

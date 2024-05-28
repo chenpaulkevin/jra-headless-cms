@@ -9,8 +9,8 @@ import Icon from './src/components/Icon'
 import fav from './public/iconPrimary.svg'
 import Logo from './src/components/Logo'
 import { vercelBlobStorage } from '@payloadcms/storage-vercel-blob'
-//import seoPlugin from '@payloadcms/plugin-seo'
 import { formBuilderPlugin } from '@payloadcms/plugin-form-builder'
+import { seoPlugin } from '@payloadcms/plugin-seo'
 
 import { Users } from './src/collections/Users'
 import { Media } from './src/collections/Media'
@@ -21,8 +21,9 @@ import { Blog } from './src/collections/Blog'
 import { Pages } from './src/collections/Pages'
 import { ModelsCategories } from './src/collections/ModelsCategories'
 
-import { Header } from './src/globals/Header'
-import { Footer } from './src/globals/Footer'
+import { Header } from '@/globals/Header'
+import { Footer } from '@/globals/Footer'
+import { Metadata } from '@/globals/Metadata'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -100,7 +101,7 @@ export default buildConfig({
   i18n: {
     supportedLanguages: { en },
   },
-  globals: [Header, Footer],
+  globals: [Header, Footer, Metadata],
 
   admin: {
     meta: {
@@ -130,6 +131,14 @@ export default buildConfig({
       },
       // Token provided by Vercel once Blob storage is added to your Vercel project
       token: process.env.BLOB_READ_WRITE_TOKEN || '',
+    }),
+    seoPlugin({
+      collections: ['blog', 'designModels'],
+      tabbedUI: true,
+      generateTitle: ({ doc }: { doc: any }) => `${doc?.title?.value}`,
+      generateDescription: ({ doc }: { doc: any }) => doc?.description?.value,
+      generateURL: ({ doc }: { doc: any }) =>
+        `${process.env.PAYLOAD_PUBLIC_SERVER_URL}/blog/${doc?.slug?.value}`,
     }),
     formBuilderPlugin({
       formOverrides: {
