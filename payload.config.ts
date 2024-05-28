@@ -138,7 +138,7 @@ export default buildConfig({
       generateTitle: ({ doc }: { doc: any }) => `${doc?.title?.value}`,
       generateDescription: ({ doc }: { doc: any }) => doc?.description?.value,
       generateURL: ({ doc }: { doc: any }) =>
-        `${process.env.PAYLOAD_PUBLIC_SERVER_URL}/blog/${doc?.slug?.value}`,
+        `${process.env.NEXT_HOST_URL_DEV}/blog/${doc?.slug?.value}`,
     }),
     formBuilderPlugin({
       formOverrides: {

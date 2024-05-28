@@ -46,7 +46,10 @@ export async function generateMetadata(): Promise<Metadata> {
   }
 }
 
-axios.defaults.baseURL = process.env.NEXT_PRIVATE_BACKEND_URL
+axios.defaults.baseURL =
+  process.env.NEXT_PUBLIC_IS_LIVE === 'true'
+    ? process.env.NEXT_HOST_URL_LIVE
+    : process.env.NEXT_HOST_URL_DEV
 axios.defaults.headers.post['Content-Type'] = 'application/json'
 axios.defaults.headers.patch['Content-Type'] = 'application/json'
 axios.defaults.withCredentials = true
