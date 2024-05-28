@@ -10,7 +10,7 @@ import fav from './public/iconPrimary.svg'
 import Logo from './src/components/Logo'
 import { vercelBlobStorage } from '@payloadcms/storage-vercel-blob'
 //import seoPlugin from '@payloadcms/plugin-seo'
-//import formBuilder from '@payloadcms/plugin-form-builder'
+import { formBuilderPlugin } from '@payloadcms/plugin-form-builder'
 
 import { Users } from './src/collections/Users'
 import { Media } from './src/collections/Media'
@@ -130,6 +130,24 @@ export default buildConfig({
       },
       // Token provided by Vercel once Blob storage is added to your Vercel project
       token: process.env.BLOB_READ_WRITE_TOKEN || '',
+    }),
+    formBuilderPlugin({
+      formOverrides: {
+        admin: {
+          group: 'Forms',
+        },
+      },
+      formSubmissionOverrides: {
+        admin: {
+          group: 'Forms',
+        },
+      },
+      fields: {
+        state: false,
+        country: false,
+        message: true,
+        payment: false,
+      },
     }),
   ],
 })

@@ -1685,18 +1685,19 @@
     find-node-modules "^2.1.3"
     range-parser "^1.2.1"
 
-"@payloadcms/plugin-form-builder@^1.2.2":
-  version "1.2.2"
-  resolved "https://registry.yarnpkg.com/@payloadcms/plugin-form-builder/-/plugin-form-builder-1.2.2.tgz#727a7763e3cb457f17257ea4713f71b99a0e2283"
-  integrity sha512-yf89YgybUqM0F4RoJomIznSokn1A5bjqGIRwkIgPE3aPK8l2vi+KUq+/dY3OoG+VhIGxUpwPzHjfSMc3K70oEg==
+"@payloadcms/plugin-form-builder@3.0.0-beta.32":
+  version "3.0.0-beta.32"
+  resolved "https://registry.yarnpkg.com/@payloadcms/plugin-form-builder/-/plugin-form-builder-3.0.0-beta.32.tgz#dc3210d78434cbb9dd42fd08ad923acb62386102"
+  integrity sha512-OeNabwlyLN//ZQmnLA0SHGuf85bz1HNC8yW7EydH+esNE40AODHIbTRUeT7uih1ji4ZYYidjrGLauTamFzQlKg==
   dependencies:
+    "@payloadcms/ui" "3.0.0-beta.32"
     deepmerge "^4.2.2"
     escape-html "^1.0.3"
 
-"@payloadcms/plugin-seo@^2.3.2":
-  version "2.3.2"
-  resolved "https://registry.yarnpkg.com/@payloadcms/plugin-seo/-/plugin-seo-2.3.2.tgz#5785030fe10f0a546fffafe5510ed65735d01974"
-  integrity sha512-wlYxY36CRDQQBSgpdvfNlovqw7qYp0jo5ORbkWZl7eeAliUl58ng7SEapRiihYWfqfPQ+eQOs2yL7CNz0GAvLg==
+"@payloadcms/plugin-seo@3.0.0-beta.32":
+  version "3.0.0-beta.32"
+  resolved "https://registry.yarnpkg.com/@payloadcms/plugin-seo/-/plugin-seo-3.0.0-beta.32.tgz#150b72e40bc1e5d4b9befec8c853fead0db67b22"
+  integrity sha512-SqDJxxq96Hb29Avix6pjdfNZpsgWJmZOWRo/8e2SjXg6MrABP9Q0l4646TsNMgfl/WuAT0Yo33OM5FiwSM7FkA==
 
 "@payloadcms/richtext-lexical@3.0.0-beta.32":
   version "3.0.0-beta.32"
@@ -6185,6 +6186,11 @@ react-error-boundary@^3.1.4:
   integrity sha512-uM9uPzZJTF6wRQORmSrvOIgt4lJ9MC1sNgEOj2XGsDTRE4kmpWxg7ENK9EWNKJRMAOY9z0MuF4yIfl6gp4sotA==
   dependencies:
     "@babel/runtime" "^7.12.5"
+
+react-hook-form@^7.51.5:
+  version "7.51.5"
+  resolved "https://registry.yarnpkg.com/react-hook-form/-/react-hook-form-7.51.5.tgz#4afbfb819312db9fea23e8237a3a0d097e128b43"
+  integrity sha512-J2ILT5gWx1XUIJRETiA7M19iXHlG74+6O3KApzvqB/w8S5NQR7AbU8HVZrMALdmDgWpRPYiZJl0zx8Z4L2mP6Q==
 
 react-icons@^5.2.1:
   version "5.2.1"

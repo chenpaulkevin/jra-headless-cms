@@ -16,6 +16,7 @@ import { TwoColumnImageRight } from '../../_blocks/TwoColumnImageRight'
 import { DesignModelsGallery } from '../../_blocks/DesignModelsGallery'
 import { InfiniteBlogScroll } from '../../_blocks/InfiniteBlogScroll'
 import { SimpleRichText } from '../../_blocks/SimpleRichText'
+import { FormBlock } from '../../_blocks/Form'
 
 export type AdditionalBlockProps = {
   blockIndex: number
@@ -36,6 +37,7 @@ const blockComponents = {
   designModelsGallery: DesignModelsGallery,
   infiniteBlogScroll: InfiniteBlogScroll,
   simpleRichText: SimpleRichText,
+  formBlock: FormBlock,
 }
 
 const Blocks = ({ blocks, locale }: any) => {

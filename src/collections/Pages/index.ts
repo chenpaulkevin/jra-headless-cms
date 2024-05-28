@@ -16,6 +16,7 @@ import { SimpleRichText } from '../../payload/blocks/SimpleRichText'
 import { Testimonials } from '../../payload/blocks/Testimonials'
 import { TwoColumnImageLeft } from '../../payload/blocks/TwoColumnLeft'
 import { TwoColumnImageRight } from '../../payload/blocks/TwoColumnRight'
+import { FormBlock } from '../../payload/blocks/Form'
 
 //import { revalidatePage } from './hooks/revalidatePage'
 
@@ -77,6 +78,7 @@ export const Pages: CollectionConfig = {
         CenteredText,
         DesignModelsGallery,
         FullWidthImage,
+        FormBlock,
         HeaderAndDescription,
         Hero,
         InfiniteBlogScroll,
