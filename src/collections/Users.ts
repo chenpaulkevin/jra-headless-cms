@@ -2,6 +2,7 @@
 import type { CollectionConfig } from 'payload/types'
 import { isAdmin } from '../access/isAdmin'
 import { isAdminOrSelf } from '../access/isAdminOrSelf'
+import CharacterCounterWrapper from '@/components/CharacterCounterWrapper'
 
 export const Users: CollectionConfig = {
   slug: 'users',
@@ -28,6 +29,11 @@ export const Users: CollectionConfig = {
           type: 'text',
           minLength: 2,
           maxLength: 50,
+          admin: {
+            components: {
+              Description: () => CharacterCounterWrapper(80),
+            },
+          },
         },
         {
           label: 'Last Name',
