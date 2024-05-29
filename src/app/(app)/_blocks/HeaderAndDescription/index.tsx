@@ -1,5 +1,5 @@
 import React from 'react'
-import HeaderTitleCard from '@/components/HeaderTitleCard/'
+import HeaderTitleCard from '@/app/(app)/_components/HeaderTitleCard'
 import type { HeaderAndDescriptionProps } from './types'
 
 export const HeaderAndDescription: React.FC<HeaderAndDescriptionProps & { id?: string }> = (

@@ -1,6 +1,6 @@
 import React from 'react'
 import type { AboutProps } from './types'
-import HeaderTitleCard from '@/components/HeaderTitleCard/'
+import HeaderTitleCard from '@/app/(app)/_components/HeaderTitleCard'
 import Image from 'next/image'
 
 export const About: React.FC<AboutProps & { id?: string }> = (props) => {

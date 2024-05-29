@@ -1,5 +1,5 @@
 import React from 'react'
-import Image from 'next/image'
+import ImageLoader from '@/app/(app)/_components/ImageLoader'
 type TestimonialCardProps = {
   title: string
   description: string
@@ -34,14 +34,10 @@ export default function TestimonialCard({
             <p>{service}</p>
           </div>
           <div className="h-20 w-20 bg-white rounded-full relative overflow-hidden">
-            <Image
-              unoptimized
+            <ImageLoader
               src={customerImage ? customerImage : '/user.png'}
-              fill
-              sizes="(min-width: 440px) 60px, calc(20vw - 24px)"
-              className="object-fill"
-              alt="Profile Picture"
-            ></Image>
+              alt="Customer Profile Image"
+            ></ImageLoader>
           </div>
         </div>
       </div>

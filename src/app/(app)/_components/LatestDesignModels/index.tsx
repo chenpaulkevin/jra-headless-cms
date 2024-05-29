@@ -1,39 +1,40 @@
 'use client'
 
 import React, { useState, useEffect, useCallback } from 'react'
-import axios, { CancelTokenSource } from 'axios'
+import axios, { AxiosResponse, CancelTokenSource } from 'axios'
 import Link from 'next/link'
+import GalleryCard from '../GalleryCard'
 import GallerySkeleton from '../GallerySkeleton'
-import LatestBlogCard from './LatestBlogCard'
 
-type BlogType = {
+interface Model {
   slug: string
-  blogImage: {
+  featuredImage?: {
     url: string
     alt: string
   }
-  createdAt: string
-  readTime: number
   title: string
-  description: string
-  categories: {
+  category: {
     title: string
   }
+  floorArea: number
 }
 
-type BlogData = {
-  docs: BlogType[]
+interface ApiResponse {
+  docs: Model[]
 }
 
-export default function LatestBlogs() {
-  const [data, setData] = useState<BlogData | null>(null)
+export default function LatestDesignModels() {
+  const [data, setData] = useState<ApiResponse | null>(null)
   const [loading, setLoading] = useState<boolean>(true)
 
   const fetchData = useCallback(async (cancelToken: CancelTokenSource) => {
     try {
-      const res = await axios.get<BlogData>('/api/blog?limit=3&draft=false', {
-        cancelToken: cancelToken.token,
-      })
+      const res: AxiosResponse<ApiResponse> = await axios.get(
+        '/api/designModels?limit=3&draft=false',
+        {
+          cancelToken: cancelToken.token,
+        },
+      )
       setData(res.data)
     } catch (err: any) {
       if (axios.isCancel(err)) {
@@ -52,7 +53,7 @@ export default function LatestBlogs() {
     // The following return statement is commented out to ensure the fetch is not canceled on unmount
     // return () => {
     //   console.log('Component unmounted, canceling request')
-    //   cancelToken.cancel('Operation canceled by the user.')
+    //   cancelToken.cancel('Component unmounted')
     // }
   }, [fetchData])
 
@@ -60,7 +61,7 @@ export default function LatestBlogs() {
     <div>
       <div className="container flex flex-col my-4">
         <h1 className="title-clamp font-semibold leading-normal text-blackPrimary my-8">
-          Latest Blogs
+          Latest Models
         </h1>
         <div className="flex flex-col md:flex-wrap md:flex-row gallery-container gap-8 xl:gap-16 py-8 items-center justify-center">
           {loading ? (
@@ -70,18 +71,18 @@ export default function LatestBlogs() {
               <GallerySkeleton />
             </>
           ) : (
-            data?.docs.map((blog, i) => (
+            data?.docs.map((model) => (
               <Link
-                href={'/blog/' + blog.slug}
-                key={i}
+                href={`/designModels/${model.slug}`}
+                key={model.slug}
                 className="flex flex-col gap-4 w-full md:w-[45%] xl:w-1/4 h-fit rounded-3xl"
               >
-                <LatestBlogCard
-                  blogImageUrl={blog.blogImage.url}
-                  blogImageAlt={blog.blogImage.alt}
-                  readTime={blog.readTime}
-                  title={blog.title}
-                  categories={blog.categories.title}
+                <GalleryCard
+                  featuredImageUrl={(model.featuredImage as { url: string })?.url}
+                  featuredImageAlt={(model.featuredImage as { alt: string })?.alt}
+                  title={model.title}
+                  categories={model.category?.title}
+                  floorArea={model.floorArea}
                 />
               </Link>
             ))

@@ -2,9 +2,9 @@
 import React, { useState, useEffect, ChangeEvent } from 'react'
 import axios from 'axios'
 import Link from 'next/link'
-import BlogSkeleton from '@/components/BlogSkeleton'
-import BlogCard from '@/components/BlogCard'
-import HeaderTitleCard from '@/components/HeaderTitleCard'
+import BlogSkeleton from '@/app/(app)/_components/BlogSkeleton'
+import BlogCard from '@/app/(app)/_components/BlogCard'
+import HeaderTitleCard from '@/app/(app)/_components/HeaderTitleCard'
 import { debounce } from 'lodash'
 
 // Define interfaces for the data structures

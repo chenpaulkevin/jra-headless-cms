@@ -1,6 +1,6 @@
 import React from 'react'
 import { orbitron } from '@/assets/fonts'
-import Image from 'next/image'
+import ImageLoader from '../../_components/ImageLoader'
 import { CardWithTitleProps } from './types'
 
 export const CardWithTitle: React.FC<CardWithTitleProps & { id?: string }> = (props) => {
@@ -12,13 +12,7 @@ export const CardWithTitle: React.FC<CardWithTitleProps & { id?: string }> = (pr
           {cards.map((card, i) => (
             <div key={i} className="w-full  flex flex-col lg:h-[520px] gap-4 lg:gap-8">
               <div className="w-full h-[350px] relative overflow-hidden rounded-2xl">
-                <Image
-                  unoptimized
-                  src={card.image.url}
-                  alt={card.image.alt}
-                  fill
-                  className="object-cover object-center"
-                ></Image>
+                <ImageLoader src={card.image.url} alt={card.image.alt}></ImageLoader>
               </div>
               <div className="flex flex-col gap-2 ">
                 <h1 className={orbitron.className + ' text-lg lg:text-xl font-bold w-full'}>

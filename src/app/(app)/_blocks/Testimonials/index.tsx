@@ -1,6 +1,6 @@
 import React from 'react'
-import HeaderTitleCard from '@/components/HeaderTitleCard/'
-import TestimonialCard from '@/components/TestimonialCard/'
+import HeaderTitleCard from '@/app/(app)/_components/HeaderTitleCard'
+import TestimonialCard from '@/app/(app)/_components/TestimonialCard'
 import type { TestimonialsProps } from './types'
 
 export const Testimonials: React.FC<TestimonialsProps & { id?: string }> = (props) => {
