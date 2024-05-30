@@ -9,7 +9,8 @@ import configPromise from '@payload-config'
 import axios from 'axios'
 import SmoothScrolling from '@/components/SmoothScrolling'
 import type { Metadata } from 'next'
-
+import PageTransition from '@/app/(app)/_components/PageTransition'
+import TransitionWrapper from './TransitionWrapper'
 export async function generateMetadata(): Promise<Metadata> {
   const payload = await getPayloadHMR({ config: configPromise })
   const meta = await payload.findGlobal({
@@ -59,9 +60,12 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     <html className={montserrat.className} lang="en">
       <body className="flex flex-col justify-between min-h-screen">
         <Header />
-        <main className="mt-28 lg:mt-36">
-          <SmoothScrolling>{children}</SmoothScrolling>
-        </main>
+        <PageTransition />
+        <TransitionWrapper>
+          <main className="mt-28 lg:mt-36">
+            <SmoothScrolling>{children}</SmoothScrolling>
+          </main>
+        </TransitionWrapper>
         <Footer />
       </body>
     </html>
