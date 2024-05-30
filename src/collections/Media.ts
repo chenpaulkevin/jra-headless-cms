@@ -3,6 +3,7 @@ import { CollectionConfig } from 'payload/types'
 import { isAdminOrAuthor } from '../access/isAdminOrAuthor'
 import createdBy from '../fields/createdBy'
 import { fileURLToPath } from 'url'
+import CharacterCounterWrapper from '@/components/CharacterCounterWrapper'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -37,13 +38,15 @@ export const Media: CollectionConfig = {
   fields: [
     {
       name: 'alt',
-      label: 'Alt Text',
+      label: 'Alt Text (This will act as an alternative text if image cannot be loaded)',
       type: 'text',
       required: true,
       maxLength: 200,
       defaultValue: 'Image',
       admin: {
-        description: 'This will act as an alternative text if image cannot be loaded',
+        components: {
+          Description: () => CharacterCounterWrapper(200),
+        },
       },
     },
     createdBy,

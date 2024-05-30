@@ -1,3 +1,4 @@
+import CharacterCounterWrapper from '@/components/CharacterCounterWrapper'
 import { Block } from 'payload/types'
 
 export type Type = {
@@ -12,6 +13,7 @@ export const CenteredText: Block = {
     singular: 'Centered Text Block',
     plural: 'Centered Text Blocks',
   },
+  imageURL: '/_thumbnails/CenteredText.png',
   fields: [
     {
       label: 'Title Text',
@@ -19,9 +21,11 @@ export const CenteredText: Block = {
       required: true,
       type: 'text',
       minLength: 1,
-      maxLength: 120,
+      maxLength: 80,
       admin: {
-        description: 'Max 120 characters',
+        components: {
+          Description: () => CharacterCounterWrapper(80),
+        },
       },
     },
     {
@@ -30,7 +34,9 @@ export const CenteredText: Block = {
       type: 'textarea',
       maxLength: 300,
       admin: {
-        description: 'Max 300 characters',
+        components: {
+          Description: () => CharacterCounterWrapper(300),
+        },
       },
     },
   ],

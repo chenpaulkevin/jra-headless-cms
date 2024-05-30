@@ -1,3 +1,4 @@
+import CharacterCounterWrapper from '@/components/CharacterCounterWrapper'
 import { Block } from 'payload/types'
 
 export type Type = {
@@ -13,6 +14,7 @@ export const CardWithTitle: Block = {
     singular: 'Card with title Block',
     plural: 'Card with title Block',
   },
+  imageURL: '/_thumbnails/CardWithTitle.png',
   fields: [
     {
       label: 'Cards',
@@ -32,7 +34,9 @@ export const CardWithTitle: Block = {
               minLength: 2,
               maxLength: 24,
               admin: {
-                description: 'Max 24 characters',
+                components: {
+                  Description: () => CharacterCounterWrapper(24),
+                },
               },
             },
             {
@@ -43,7 +47,9 @@ export const CardWithTitle: Block = {
               minLength: 2,
               maxLength: 80,
               admin: {
-                description: 'Max 80 characters',
+                components: {
+                  Description: () => CharacterCounterWrapper(80),
+                },
               },
             },
           ],
@@ -54,6 +60,9 @@ export const CardWithTitle: Block = {
           type: 'upload',
           required: true,
           relationTo: 'media',
+          admin: {
+            description: 'Square image recommended',
+          },
         },
       ],
     },

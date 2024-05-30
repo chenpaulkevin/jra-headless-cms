@@ -31,7 +31,7 @@ export const Users: CollectionConfig = {
           maxLength: 50,
           admin: {
             components: {
-              Description: () => CharacterCounterWrapper(80),
+              Description: () => CharacterCounterWrapper(50),
             },
           },
         },
@@ -42,6 +42,11 @@ export const Users: CollectionConfig = {
           type: 'text',
           minLength: 2,
           maxLength: 50,
+          admin: {
+            components: {
+              Description: () => CharacterCounterWrapper(50),
+            },
+          },
         },
       ],
     },

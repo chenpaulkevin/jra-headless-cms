@@ -1,3 +1,4 @@
+import CharacterCounterWrapper from '@/components/CharacterCounterWrapper'
 import { Block } from 'payload/types'
 
 export type Type = {
@@ -12,6 +13,7 @@ export const Testimonials: Block = {
     singular: 'Featured Testimonial',
     plural: 'Featured Testimonials',
   },
+  imageURL: '/_thumbnails/FeaturedTestimonial.png',
   fields: [
     {
       label: 'Block Header',
@@ -20,6 +22,11 @@ export const Testimonials: Block = {
       required: true,
       minLength: 2,
       maxLength: 50,
+      admin: {
+        components: {
+          Description: () => CharacterCounterWrapper(50),
+        },
+      },
     },
     {
       label: 'Block Description',
@@ -28,7 +35,9 @@ export const Testimonials: Block = {
       required: true,
       maxLength: 300,
       admin: {
-        description: 'Max 300 characters',
+        components: {
+          Description: () => CharacterCounterWrapper(300),
+        },
       },
     },
     {

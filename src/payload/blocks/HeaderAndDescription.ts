@@ -1,3 +1,4 @@
+import CharacterCounterWrapper from '@/components/CharacterCounterWrapper'
 import { Block } from 'payload/types'
 
 export type Type = {
@@ -12,6 +13,7 @@ export const HeaderAndDescription: Block = {
     singular: 'Header and Description',
     plural: 'Header and Descriptions',
   },
+  imageURL: '/_thumbnails/HeaderAndDescription.png',
   fields: [
     {
       name: 'header',
@@ -19,9 +21,11 @@ export const HeaderAndDescription: Block = {
       required: true,
       type: 'text',
       minLength: 10,
-      maxLength: 80,
+      maxLength: 40,
       admin: {
-        description: 'Max 80 characters',
+        components: {
+          Description: () => CharacterCounterWrapper(40),
+        },
       },
     },
     {
@@ -30,9 +34,11 @@ export const HeaderAndDescription: Block = {
       type: 'textarea',
       required: true,
       minLength: 10,
-      maxLength: 200,
+      maxLength: 150,
       admin: {
-        description: 'Max 200 characters',
+        components: {
+          Description: () => CharacterCounterWrapper(150),
+        },
       },
     },
   ],

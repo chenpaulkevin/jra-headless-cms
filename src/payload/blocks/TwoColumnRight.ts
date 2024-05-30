@@ -1,3 +1,4 @@
+import CharacterCounterWrapper from '@/components/CharacterCounterWrapper'
 import { Block } from 'payload/types'
 
 export type Type = {
@@ -12,6 +13,7 @@ export const TwoColumnImageRight: Block = {
     singular: 'Two Column Image Right Block',
     plural: 'Two Column Image Right Blocks',
   },
+  imageURL: '/_thumbnails/ImageRight.png',
   fields: [
     {
       label: 'Title Text',
@@ -21,7 +23,9 @@ export const TwoColumnImageRight: Block = {
       minLength: 1,
       maxLength: 120,
       admin: {
-        description: 'Max 120 characters',
+        components: {
+          Description: () => CharacterCounterWrapper(120),
+        },
       },
     },
     {
@@ -30,7 +34,9 @@ export const TwoColumnImageRight: Block = {
       type: 'textarea',
       maxLength: 300,
       admin: {
-        description: 'Max 300 characters',
+        components: {
+          Description: () => CharacterCounterWrapper(300),
+        },
       },
     },
     {

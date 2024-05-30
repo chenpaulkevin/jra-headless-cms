@@ -1,5 +1,5 @@
+import CharacterCounterWrapper from '@/components/CharacterCounterWrapper'
 import { Block } from 'payload/types'
-
 export type Type = {
   blockType: 'content'
   blockName?: string
@@ -12,6 +12,7 @@ export const About: Block = {
     singular: 'About Block',
     plural: 'About Blocks',
   },
+  imageURL: '/_thumbnails/About.png',
   fields: [
     {
       label: 'About Header',
@@ -19,7 +20,12 @@ export const About: Block = {
       required: true,
       type: 'text',
       minLength: 5,
-      maxLength: 80,
+      maxLength: 40,
+      admin: {
+        components: {
+          Description: () => CharacterCounterWrapper(40),
+        },
+      },
     },
     {
       label: 'About Description',
@@ -29,7 +35,9 @@ export const About: Block = {
       minLength: 10,
       maxLength: 150,
       admin: {
-        description: 'Max 150 characters',
+        components: {
+          Description: () => CharacterCounterWrapper(150),
+        },
       },
     },
     {
@@ -47,6 +55,11 @@ export const About: Block = {
           required: true,
           minLength: 2,
           maxLength: 20,
+          admin: {
+            components: {
+              Description: () => CharacterCounterWrapper(20),
+            },
+          },
         },
         {
           label: 'Milestone Value',

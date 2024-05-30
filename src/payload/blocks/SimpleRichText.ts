@@ -12,6 +12,7 @@ export const SimpleRichText: Block = {
     singular: 'Simple Rich Text Block',
     plural: 'Simple Rich Text Blocks',
   },
+  imageURL: '/_thumbnails/SimpleRichTextRenderer.png',
   fields: [
     {
       label: 'Body',

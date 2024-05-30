@@ -12,6 +12,7 @@ export const FullWidthImage: Block = {
     singular: 'Full Width Image',
     plural: 'Full Width Images',
   },
+  imageURL: '/_thumbnails/FullWidthImage.png',
   fields: [
     {
       name: 'image',

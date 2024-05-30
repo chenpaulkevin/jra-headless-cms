@@ -1,3 +1,4 @@
+import CharacterCounterWrapper from '@/components/CharacterCounterWrapper'
 import { Block } from 'payload/types'
 export type Type = {
   blockType: 'content'
@@ -11,6 +12,7 @@ export const InfiniteBlogScroll: Block = {
     singular: 'Infinite Blog Scroll Component',
     plural: 'Infinite Blog Scroll Components',
   },
+  imageURL: '/_thumbnails/InfiniteBlogScroll.png',
   fields: [
     {
       label: 'Block Header',
@@ -18,9 +20,11 @@ export const InfiniteBlogScroll: Block = {
       type: 'text',
       required: true,
       minLength: 2,
-      maxLength: 60,
+      maxLength: 40,
       admin: {
-        description: 'Max 60 characters',
+        components: {
+          Description: () => CharacterCounterWrapper(40),
+        },
       },
     },
     {
@@ -31,7 +35,9 @@ export const InfiniteBlogScroll: Block = {
       minLength: 10,
       maxLength: 100,
       admin: {
-        description: 'Max 100 characters',
+        components: {
+          Description: () => CharacterCounterWrapper(100),
+        },
       },
     },
   ],

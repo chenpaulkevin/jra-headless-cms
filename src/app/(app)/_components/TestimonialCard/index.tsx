@@ -30,7 +30,7 @@ export default function TestimonialCard({
         <div className="text-base">{description}</div>
         <div className="flex items-center gap-6 self-end mt-auto pt-8">
           <div className="flex flex-col items-end">
-            <p className="text-base">{customerName}s</p>
+            <p className="text-base">{customerName}</p>
             <p>{service}</p>
           </div>
           <div className="h-20 w-20 bg-white rounded-full relative overflow-hidden">

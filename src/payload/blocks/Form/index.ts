@@ -1,3 +1,4 @@
+import CharacterCounterWrapper from '@/components/CharacterCounterWrapper'
 import { Block } from 'payload/types'
 
 export type Type = {
@@ -12,6 +13,7 @@ export const FormBlock: Block = {
     singular: 'Form Block',
     plural: 'Form Block',
   },
+  imageURL: '/_thumbnails/ContactForm.png',
   fields: [
     {
       name: 'form',
@@ -30,10 +32,12 @@ export const FormBlock: Block = {
       type: 'text',
       required: true,
       minLength: 10,
-      maxLength: 100,
+      maxLength: 50,
       admin: {
         condition: (_, { enable2ColumnLayout }) => Boolean(enable2ColumnLayout),
-        description: 'Max 100 characters',
+        components: {
+          Description: () => CharacterCounterWrapper(50),
+        },
       },
     },
     {

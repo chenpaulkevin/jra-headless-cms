@@ -1,3 +1,4 @@
+import CharacterCounterWrapper from '@/components/CharacterCounterWrapper'
 import { Block } from 'payload/types'
 export type Type = {
   blockType: 'content'
@@ -10,6 +11,7 @@ export const BlogCollection: Block = {
     singular: 'Blog Collection Block',
     plural: 'Blog Collection Blocks',
   },
+  imageURL: '/_thumbnails/BlogCollection.png',
   fields: [
     {
       type: 'row',
@@ -20,7 +22,12 @@ export const BlogCollection: Block = {
           type: 'text',
           required: true,
           minLength: 2,
-          maxLength: 50,
+          maxLength: 40,
+          admin: {
+            components: {
+              Description: () => CharacterCounterWrapper(40),
+            },
+          },
         },
         {
           label: 'Call To Action Button',
@@ -36,6 +43,11 @@ export const BlogCollection: Block = {
               required: true,
               minLength: 2,
               maxLength: 20,
+              admin: {
+                components: {
+                  Description: () => CharacterCounterWrapper(20),
+                },
+              },
             },
             {
               label: 'Slug / Link',

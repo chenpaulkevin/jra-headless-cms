@@ -15,9 +15,12 @@ export function CharacterCounter(props: CustomFieldDescriptionProps) {
   const { value } = useFormFields(([fields]) => fields[path])
   const { maxLength } = props // Destructure maxLength prop
 
-  const description = `${
-    typeof value === 'string' ? maxLength - value.length : maxLength
-  } characters left (field: ${path})`
+  const description =
+    typeof value === 'string' && value.length > maxLength
+      ? `You have reached the maximum character limit of ${maxLength}`
+      : `${
+          typeof value === 'string' ? maxLength - value.length : maxLength
+        }/${maxLength} characters remaining`
 
   return <FieldDescription {...props} description={description} />
 }
