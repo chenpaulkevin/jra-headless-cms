@@ -13,7 +13,7 @@ export const CenteredText: Block = {
     singular: 'Centered Text Block',
     plural: 'Centered Text Blocks',
   },
-  imageURL: '/_thumbnails/CenteredText.png',
+  imageURL: '/_thumbnails/CenteredText.jpg',
   fields: [
     {
       label: 'Title Text',

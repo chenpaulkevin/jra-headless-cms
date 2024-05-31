@@ -13,7 +13,7 @@ export const FormBlock: Block = {
     singular: 'Form Block',
     plural: 'Form Block',
   },
-  imageURL: '/_thumbnails/ContactForm.png',
+  imageURL: '/_thumbnails/ContactForm.jpg',
   fields: [
     {
       name: 'form',

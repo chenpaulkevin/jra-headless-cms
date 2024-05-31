@@ -13,7 +13,7 @@ export const TwoColumnImageRight: Block = {
     singular: 'Two Column Image Right Block',
     plural: 'Two Column Image Right Blocks',
   },
-  imageURL: '/_thumbnails/ImageRight.png',
+  imageURL: '/_thumbnails/ImageRight.jpg',
   fields: [
     {
       label: 'Title Text',

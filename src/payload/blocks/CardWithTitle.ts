@@ -14,7 +14,7 @@ export const CardWithTitle: Block = {
     singular: 'Card with title Block',
     plural: 'Card with title Block',
   },
-  imageURL: '/_thumbnails/CardWithTitle.png',
+  imageURL: '/_thumbnails/CardWithTitle.jpg',
   fields: [
     {
       label: 'Cards',

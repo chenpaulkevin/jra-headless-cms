@@ -12,7 +12,7 @@ export const About: Block = {
     singular: 'About Block',
     plural: 'About Blocks',
   },
-  imageURL: '/_thumbnails/About.png',
+  imageURL: '/_thumbnails/About.jpg',
   fields: [
     {
       label: 'About Header',

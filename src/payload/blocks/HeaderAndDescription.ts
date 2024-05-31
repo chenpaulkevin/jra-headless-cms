@@ -13,7 +13,7 @@ export const HeaderAndDescription: Block = {
     singular: 'Header and Description',
     plural: 'Header and Descriptions',
   },
-  imageURL: '/_thumbnails/HeaderAndDescription.png',
+  imageURL: '/_thumbnails/HeaderAndDescription.jpg',
   fields: [
     {
       name: 'header',

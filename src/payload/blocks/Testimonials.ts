@@ -13,7 +13,7 @@ export const Testimonials: Block = {
     singular: 'Featured Testimonial',
     plural: 'Featured Testimonials',
   },
-  imageURL: '/_thumbnails/FeaturedTestimonial.png',
+  imageURL: '/_thumbnails/FeaturedTestimonial.jpg',
   fields: [
     {
       label: 'Block Header',

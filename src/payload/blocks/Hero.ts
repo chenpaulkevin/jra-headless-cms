@@ -13,7 +13,7 @@ export const Hero: Block = {
     singular: 'Hero Block',
     plural: 'Hero Blocks',
   },
-  imageURL: '/_thumbnails/HeroBlock.png',
+  imageURL: '/_thumbnails/HeroBlock.jpg',
   fields: [
     {
       label: 'Hero Headline (Preferably 3-4 words only)',

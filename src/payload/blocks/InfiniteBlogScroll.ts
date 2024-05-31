@@ -12,7 +12,7 @@ export const InfiniteBlogScroll: Block = {
     singular: 'Infinite Blog Scroll Component',
     plural: 'Infinite Blog Scroll Components',
   },
-  imageURL: '/_thumbnails/InfiniteBlogScroll.png',
+  imageURL: '/_thumbnails/InfiniteBlogScroll.jpg',
   fields: [
     {
       label: 'Block Header',

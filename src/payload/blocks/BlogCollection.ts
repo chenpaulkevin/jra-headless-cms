@@ -11,7 +11,7 @@ export const BlogCollection: Block = {
     singular: 'Blog Collection Block',
     plural: 'Blog Collection Blocks',
   },
-  imageURL: '/_thumbnails/BlogCollection.png',
+  imageURL: '/_thumbnails/BlogCollection.jpg',
   fields: [
     {
       type: 'row',
