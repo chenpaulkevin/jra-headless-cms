@@ -2,6 +2,7 @@ import escapeHTML from 'escape-html'
 import Image from 'next/image'
 import React, { Fragment, ReactNode } from 'react'
 import { MdCheckBox, MdCheckBoxOutlineBlank } from 'react-icons/md'
+import ImageLoader from '@/app/(app)/_components/ImageLoader'
 
 export const IS_BOLD = 1
 export const IS_ITALIC = 1 << 1
@@ -114,7 +115,7 @@ export default function serializeLexicalRichText({
             className="relative w-full aspect-video my-16 flex justify-center items-center overflow-hidden rounded-3xl"
             key={i}
           >
-            <Image src={node.value.url} fill alt={node.value.alt} priority />
+            <ImageLoader src={node.value.url} alt={node.value.alt} />
           </div>
         )
       }
