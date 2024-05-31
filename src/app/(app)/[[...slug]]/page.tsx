@@ -9,6 +9,7 @@ const Page = async ({ params }: { params: { slug: string } }) => {
   if (page?.layout?.length === 0) {
     return (
       <>
+        <div />
         <div className="flex h-[400px]">
           <div className="container w-full flex justify-center items-center">
             <h1

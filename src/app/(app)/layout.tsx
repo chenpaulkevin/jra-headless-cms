@@ -11,6 +11,7 @@ import SmoothScrolling from '@/components/SmoothScrolling'
 import type { Metadata } from 'next'
 import PageTransition from '@/app/(app)/_components/PageTransition'
 import TransitionWrapper from './TransitionWrapper'
+import ScrollToTop from './_components/ScrollToTop'
 export async function generateMetadata(): Promise<Metadata> {
   const payload = await getPayloadHMR({ config: configPromise })
   const meta = await payload.findGlobal({
@@ -65,6 +66,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
           <main className="mt-28 lg:mt-36">
             <SmoothScrolling>{children}</SmoothScrolling>
           </main>
+          <ScrollToTop></ScrollToTop>
         </TransitionWrapper>
         <Footer />
       </body>

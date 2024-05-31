@@ -1,5 +1,5 @@
 'use client'
-import React, { useCallback, useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import LatestDesignModels from '../../_components/LatestDesignModels'
 import RichTextParser from '@/utilities/RichTextParser'
 import ImageLoader from '../../_components/ImageLoader'

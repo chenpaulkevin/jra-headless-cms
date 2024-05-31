@@ -4,6 +4,7 @@ import { withPayload } from '@payloadcms/next/withPayload'
 const nextConfig = {
   // Your Next.js config here
   reactStrictMode: true,
+  trailingSlash: true,
   swcMinify: true,
   eslint: {
     ignoreDuringBuilds: true,

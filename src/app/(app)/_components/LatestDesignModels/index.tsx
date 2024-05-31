@@ -73,7 +73,7 @@ export default function LatestDesignModels() {
           ) : (
             data?.docs.map((model) => (
               <Link
-                href={`/designModels/${model.slug}`}
+                href={`/gallery/${model.slug}`}
                 key={model.slug}
                 className="flex flex-col gap-4 w-full md:w-[45%] xl:w-1/4 h-fit rounded-3xl"
               >
