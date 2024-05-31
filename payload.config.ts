@@ -27,7 +27,10 @@ import { Metadata } from '@/globals/Metadata'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
-
+const seoUrl =
+  process.env.NEXT_PUBLIC_IS_LIVE === 'true'
+    ? process.env.NEXT_HOST_URL_LIVE
+    : process.env.NEXT_HOST_URL_DEV
 export default buildConfig({
   //editor: slateEditor({}),
   editor: lexicalEditor({
@@ -137,8 +140,7 @@ export default buildConfig({
       tabbedUI: true,
       generateTitle: ({ doc }: { doc: any }) => `${doc?.title?.value}`,
       generateDescription: ({ doc }: { doc: any }) => doc?.description?.value,
-      generateURL: ({ doc }: { doc: any }) =>
-        `${process.env.NEXT_HOST_URL_DEV}/blog/${doc?.slug?.value}`,
+      generateURL: ({ doc }: { doc: any }) => `${seoUrl}/blog/${doc?.slug?.value}`,
     }),
     formBuilderPlugin({
       formOverrides: {
