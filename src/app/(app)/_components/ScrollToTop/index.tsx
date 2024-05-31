@@ -24,7 +24,7 @@ export default function ScrollToTop() {
       className="fixed bottom-8 right-8 z-[52] cursor-pointer"
       onClick={backToTop}
     >
-      <div className="h-16 w-16 rounded-full bg-primary text-white flex justify-center items-center text-xl">
+      <div className="h-16 w-16 rounded-full bg-primary border border-6 border-white text-white flex justify-center items-center">
         <FaArrowUp size={20} />
       </div>
     </motion.div>

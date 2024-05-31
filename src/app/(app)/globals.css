@@ -13,6 +13,13 @@ body {
   background-color: var(--white);
 }
 
+.open {
+  background-color: var(--white);
+}
+.close {
+  background-color: var(--primary);
+}
+
 .header-clamp {
   font-size: clamp(3.2em, 4.4vw, 6.5em);
 }
@@ -46,6 +53,7 @@ body {
   animation: openMenuTop 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
   animation-iteration-count: 1; /* Set it to 1 to stop the animation at 100% */
   animation-fill-mode: forwards;
+  background-color: var(--black);
 }
 .close .line-top {
   animation: closeMenuTop 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
@@ -56,12 +64,14 @@ body {
 .open .line-mid {
   opacity: 0;
   transition-delay: 0.22s;
+  background-color: var(--black);
 }
 
 .open .line-bot {
   animation: openMenuBot 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
   animation-iteration-count: 1; /* Set it to 1 to stop the animation at 100% */
   animation-fill-mode: forwards;
+  background-color: var(--black);
 }
 .close .line-bot {
   animation: closeMenuBot 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);

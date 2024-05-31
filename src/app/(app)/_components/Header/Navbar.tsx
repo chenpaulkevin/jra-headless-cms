@@ -82,7 +82,9 @@ export default function Navbar({ header }: { header: any }) {
                   ></PrimaryButton>
                 )}
               </div>
-              {header.cta[0] && <MobileMenu header={header}></MobileMenu>}
+              <AnimatePresence mode="wait">
+                {header.cta[0] && <MobileMenu header={header}></MobileMenu>}
+              </AnimatePresence>
             </div>
           </div>
         </motion.nav>
