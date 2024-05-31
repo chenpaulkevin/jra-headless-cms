@@ -63,7 +63,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
         <Header />
         <PageTransition />
         <TransitionWrapper>
-          <main className="mt-28 lg:mt-36">
+          <main className="mt-28 lg:mt-36 min-h-[80dvh]">
             <SmoothScrolling>{children}</SmoothScrolling>
           </main>
           <ScrollToTop></ScrollToTop>
