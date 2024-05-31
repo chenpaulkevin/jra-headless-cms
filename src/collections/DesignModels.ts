@@ -2,6 +2,7 @@ import { CollectionConfig } from 'payload/types'
 import slug from '../fields/slug'
 import { isAdminOrAuthor } from '../access/isAdminOrAuthor'
 import createdBy from '../fields/createdBy'
+import CharacterCounterWrapper from '@/components/CharacterCounterWrapper'
 
 export const DesignModels: CollectionConfig = {
   slug: 'designModels',
@@ -24,6 +25,11 @@ export const DesignModels: CollectionConfig = {
       unique: true,
       minLength: 2,
       maxLength: 20,
+      admin: {
+        components: {
+          Description: () => CharacterCounterWrapper(20),
+        },
+      },
     },
     {
       label: 'Short Description',
@@ -31,9 +37,11 @@ export const DesignModels: CollectionConfig = {
       required: true,
       type: 'textarea',
       minLength: 10,
-      maxLength: 500,
+      maxLength: 200,
       admin: {
-        description: 'Max 500 characters',
+        components: {
+          Description: () => CharacterCounterWrapper(200),
+        },
       },
     },
     {

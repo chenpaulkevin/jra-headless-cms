@@ -18,6 +18,7 @@ import { TwoColumnImageLeft } from '../../payload/blocks/TwoColumnLeft'
 import { TwoColumnImageRight } from '../../payload/blocks/TwoColumnRight'
 import { FormBlock } from '../../payload/blocks/Form'
 import { ImageCarousel } from '@/payload/blocks/ImageCarousel'
+import CharacterCounterWrapper from '@/components/CharacterCounterWrapper'
 
 //import { revalidatePage } from './hooks/revalidatePage'
 
@@ -56,14 +57,16 @@ export const Pages: CollectionConfig = {
     {
       name: 'title',
       label: 'Page Title',
-      admin: {
-        description: 'This sets title of the page.',
-      },
       type: 'text',
       unique: true,
       required: true,
       minLength: 2,
       maxLength: 80,
+      admin: {
+        components: {
+          Description: () => CharacterCounterWrapper(80),
+        },
+      },
     },
     {
       name: 'layout',

@@ -3,6 +3,7 @@ import { isAdmin } from '../access/isAdmin'
 import { isAdminOrAuthor } from '../access/isAdminOrAuthor'
 import slug from '../fields/slug'
 import createdBy from '../fields/createdBy'
+import CharacterCounterWrapper from '@/components/CharacterCounterWrapper'
 
 export const Categories: CollectionConfig = {
   slug: 'categories',
@@ -41,6 +42,11 @@ export const Categories: CollectionConfig = {
       type: 'text',
       minLength: 4,
       maxLength: 24,
+      admin: {
+        components: {
+          Description: () => CharacterCounterWrapper(24),
+        },
+      },
     },
     slug,
     createdBy,
