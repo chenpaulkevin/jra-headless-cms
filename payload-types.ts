@@ -305,6 +305,16 @@ export interface Page {
             blockType: 'infiniteBlogScroll';
           }
         | {
+            slider: {
+              image: number | Media;
+              alt: string;
+              id?: string | null;
+            }[];
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'imageCarousel';
+          }
+        | {
             body?: {
               root: {
                 type: string;

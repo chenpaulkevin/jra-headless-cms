@@ -99,35 +99,6 @@ export const DesignModels: CollectionConfig = {
         description: '1920x1080 recommended',
       },
     },
-    {
-      label: 'Image Slider',
-      name: 'slider',
-      type: 'array',
-      minRows: 1,
-      maxRows: 10,
-      required: true,
-      fields: [
-        {
-          type: 'upload',
-          name: 'image',
-          relationTo: 'media',
-          required: true,
-          unique: true,
-          admin: {
-            description: '1920x1080 recommended',
-          },
-        },
-        {
-          label: 'Caption',
-          name: 'alt',
-          type: 'text',
-          required: true,
-          minLength: 2,
-          maxLength: 40,
-        },
-      ],
-    },
-
     slug,
     createdBy,
   ],

@@ -17,6 +17,7 @@ import { Testimonials } from '../../payload/blocks/Testimonials'
 import { TwoColumnImageLeft } from '../../payload/blocks/TwoColumnLeft'
 import { TwoColumnImageRight } from '../../payload/blocks/TwoColumnRight'
 import { FormBlock } from '../../payload/blocks/Form'
+import { ImageCarousel } from '@/payload/blocks/ImageCarousel'
 
 //import { revalidatePage } from './hooks/revalidatePage'
 
@@ -82,6 +83,7 @@ export const Pages: CollectionConfig = {
         HeaderAndDescription,
         Hero,
         InfiniteBlogScroll,
+        ImageCarousel,
         SimpleRichText,
         Testimonials,
         TwoColumnImageLeft,
