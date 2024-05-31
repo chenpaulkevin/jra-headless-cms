@@ -5,6 +5,7 @@ import RichTextParser from '@/utilities/RichTextParser'
 import ImageLoader from '../../_components/ImageLoader'
 import useEmblaCarousel from 'embla-carousel-react'
 import ImageModal from '../../_components/ImageModal/page'
+import Blocks from '../../../../app/(app)/_components/Blocks'
 
 export default function GalleryParser({ designModel }: { designModel: any }) {
   const [isModalOpen, setModalOpen] = useState(false)
@@ -55,6 +56,7 @@ export default function GalleryParser({ designModel }: { designModel: any }) {
               <RichTextParser content={designModel?.content}></RichTextParser>
             </div>
           </div>
+          {designModel.layout.length !== 0 && <Blocks blocks={designModel?.layout} locale="en" />}
           <LatestDesignModels />
         </div>
         {isModalOpen && (

@@ -12,7 +12,7 @@ export const ImageCarousel: Block = {
     singular: 'Image Carousel',
     plural: 'Image Carousels',
   },
-  imageURL: '/_thumbnails/FullWidthImage.jpg',
+  imageURL: '/_thumbnails/ImageSlider.jpg',
   fields: [
     {
       label: 'Image Slider',

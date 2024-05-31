@@ -3,6 +3,8 @@ import slug from '../fields/slug'
 import { isAdminOrAuthor } from '../access/isAdminOrAuthor'
 import createdBy from '../fields/createdBy'
 import CharacterCounterWrapper from '@/components/CharacterCounterWrapper'
+import { FullWidthImage } from '@/payload/blocks/FullWidthImage'
+import { ImageCarousel } from '@/payload/blocks/ImageCarousel'
 
 export const DesignModels: CollectionConfig = {
   slug: 'designModels',
@@ -106,6 +108,15 @@ export const DesignModels: CollectionConfig = {
       admin: {
         description: '1920x1080 recommended',
       },
+    },
+    {
+      name: 'layout',
+      label: 'Image Carousel',
+      type: 'blocks',
+      admin: {
+        description: 'Add Image Carousels here',
+      },
+      blocks: [ImageCarousel],
     },
     slug,
     createdBy,
