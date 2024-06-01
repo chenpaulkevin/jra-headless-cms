@@ -5,6 +5,7 @@ import createdBy from '../fields/createdBy'
 import CharacterCounterWrapper from '@/components/CharacterCounterWrapper'
 import { FullWidthImage } from '@/payload/blocks/FullWidthImage'
 import { ImageCarousel } from '@/payload/blocks/ImageCarousel'
+import { isAdmin } from '@/access/isAdmin'
 
 export const DesignModels: CollectionConfig = {
   slug: 'designModels',
@@ -16,7 +17,7 @@ export const DesignModels: CollectionConfig = {
     create: isAdminOrAuthor,
     read: () => true,
     update: isAdminOrAuthor,
-    delete: isAdminOrAuthor,
+    delete: isAdmin,
   },
   fields: [
     {

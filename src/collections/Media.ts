@@ -4,6 +4,7 @@ import { isAdminOrAuthor } from '../access/isAdminOrAuthor'
 import createdBy from '../fields/createdBy'
 import { fileURLToPath } from 'url'
 import CharacterCounterWrapper from '@/components/CharacterCounterWrapper'
+import { isAdmin } from '@/access/isAdmin'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -19,7 +20,7 @@ export const Media: CollectionConfig = {
     create: isAdminOrAuthor,
     read: () => true,
     update: isAdminOrAuthor,
-    delete: isAdminOrAuthor,
+    delete: isAdmin,
   },
   upload: {
     staticDir: path.resolve(dirname, '../../media'),

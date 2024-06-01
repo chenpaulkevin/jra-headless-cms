@@ -19,6 +19,7 @@ import { TwoColumnImageRight } from '../../payload/blocks/TwoColumnRight'
 import { FormBlock } from '../../payload/blocks/Form'
 import { ImageCarousel } from '@/payload/blocks/ImageCarousel'
 import CharacterCounterWrapper from '@/components/CharacterCounterWrapper'
+import { isAdminOrAuthor } from '@/access/isAdminOrAuthor'
 
 //import { revalidatePage } from './hooks/revalidatePage'
 
@@ -29,7 +30,7 @@ export const Pages: CollectionConfig = {
   access: {
     create: isAdmin,
     read: () => true,
-    update: isAdmin,
+    update: isAdminOrAuthor,
     delete: isAdmin,
   },
   hooks: {

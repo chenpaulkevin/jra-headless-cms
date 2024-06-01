@@ -61,10 +61,6 @@ export const Users: CollectionConfig = {
           value: 'admin',
         },
         {
-          label: 'Developer',
-          value: 'developer',
-        },
-        {
           label: 'Author',
           value: 'author',
         },
