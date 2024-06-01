@@ -1,3 +1,4 @@
+import CharacterCounterWrapper from '@/components/CharacterCounterWrapper'
 import { isAdmin } from '../access/isAdmin'
 import { GlobalConfig } from 'payload/types'
 
@@ -38,6 +39,11 @@ export const Header: GlobalConfig = {
               required: true,
               minLength: 2,
               maxLength: 20,
+              admin: {
+                components: {
+                  Description: () => CharacterCounterWrapper(20),
+                },
+              },
             },
             {
               label: 'Slug / Link',
@@ -65,6 +71,11 @@ export const Header: GlobalConfig = {
           required: true,
           minLength: 2,
           maxLength: 20,
+          admin: {
+            components: {
+              Description: () => CharacterCounterWrapper(20),
+            },
+          },
         },
         {
           label: 'Slug / Link',

@@ -1,3 +1,4 @@
+import CharacterCounterWrapper from '@/components/CharacterCounterWrapper'
 import { isAdmin } from '../access/isAdmin'
 import { GlobalConfig } from 'payload/types'
 
@@ -36,6 +37,11 @@ export const Metadata: GlobalConfig = {
           type: 'text',
           required: true,
           maxLength: 100,
+          admin: {
+            components: {
+              Description: () => CharacterCounterWrapper(100),
+            },
+          },
         },
         {
           name: 'description',
@@ -45,7 +51,7 @@ export const Metadata: GlobalConfig = {
           maxLength: 200,
           admin: {
             components: {
-              Description: () => 'Max 200 Characters',
+              Description: () => CharacterCounterWrapper(200),
             },
           },
         },
@@ -56,7 +62,7 @@ export const Metadata: GlobalConfig = {
       name: 'keywords',
       label: 'Keywords',
       minRows: 1,
-      maxRows: 5,
+      maxRows: 8,
       required: true,
       fields: [
         {
@@ -67,7 +73,7 @@ export const Metadata: GlobalConfig = {
           maxLength: 40,
           admin: {
             components: {
-              Description: () => 'Max 40 Characters',
+              Description: () => CharacterCounterWrapper(40),
             },
           },
         },

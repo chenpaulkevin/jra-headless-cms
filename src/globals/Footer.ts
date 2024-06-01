@@ -1,3 +1,4 @@
+import CharacterCounterWrapper from '@/components/CharacterCounterWrapper'
 import { isAdmin } from '../access/isAdmin'
 import { GlobalConfig } from 'payload/types'
 
@@ -27,6 +28,11 @@ export const Footer: GlobalConfig = {
       required: true,
       minLength: 1,
       maxLength: 80,
+      admin: {
+        components: {
+          Description: () => CharacterCounterWrapper(80),
+        },
+      },
     },
     {
       label: 'Call-To-Action Subheader',
@@ -35,6 +41,11 @@ export const Footer: GlobalConfig = {
       required: true,
       minLength: 1,
       maxLength: 200,
+      admin: {
+        components: {
+          Description: () => CharacterCounterWrapper(200),
+        },
+      },
     },
     {
       label: 'Contact Page Button Image',
@@ -65,6 +76,11 @@ export const Footer: GlobalConfig = {
       type: 'text',
       minLength: 2,
       maxLength: 100,
+      admin: {
+        components: {
+          Description: () => CharacterCounterWrapper(100),
+        },
+      },
     },
     {
       type: 'row',
@@ -83,6 +99,11 @@ export const Footer: GlobalConfig = {
               required: true,
               minLength: 2,
               maxLength: 20,
+              admin: {
+                components: {
+                  Description: () => CharacterCounterWrapper(20),
+                },
+              },
             },
             {
               label: 'Slug / Link',
@@ -108,6 +129,11 @@ export const Footer: GlobalConfig = {
               required: true,
               minLength: 2,
               maxLength: 50,
+              admin: {
+                components: {
+                  Description: () => CharacterCounterWrapper(50),
+                },
+              },
             },
             {
               label: 'Street Address',
@@ -116,6 +142,11 @@ export const Footer: GlobalConfig = {
               required: true,
               minLength: 1,
               maxLength: 200,
+              admin: {
+                components: {
+                  Description: () => CharacterCounterWrapper(200),
+                },
+              },
             },
           ],
         },
@@ -138,6 +169,11 @@ export const Footer: GlobalConfig = {
               required: true,
               minLength: 2,
               maxLength: 50,
+              admin: {
+                components: {
+                  Description: () => CharacterCounterWrapper(50),
+                },
+              },
             },
             {
               label: 'Icon (24x24px and preferably white colored SVG)',
@@ -155,6 +191,11 @@ export const Footer: GlobalConfig = {
           required: true,
           minLength: 2,
           maxLength: 400,
+          admin: {
+            components: {
+              Description: () => CharacterCounterWrapper(400),
+            },
+          },
         },
       ],
     },
