@@ -133,7 +133,12 @@ export default buildConfig({
       tabbedUI: true,
       generateTitle: ({ doc }: { doc: any }) => `${doc?.title?.value}`,
       generateDescription: ({ doc }: { doc: any }) => doc?.description?.value,
-      generateURL: ({ doc }: { doc: any }) => `${seoUrl}/blog/${doc?.slug?.value}`,
+      generateURL: ({ doc }: { doc: any }) => {
+        if (!doc?.floorArea?.value) {
+          return `${seoUrl}blog/${doc?.slug?.value}`
+        }
+        return `${seoUrl}gallery/${doc?.slug?.value}`
+      },
     }),
     formBuilderPlugin({
       formOverrides: {
