@@ -5,6 +5,7 @@ import { getPayloadHMR } from '@payloadcms/next/utilities'
 import React from 'react'
 import { orbitron } from '@/assets/fonts'
 import type { Footer } from '../../../../../payload-types'
+import { FaArrowRightLong } from 'react-icons/fa6'
 
 export async function Footer() {
   const payload = await getPayloadHMR({ config: configPromise })
@@ -27,7 +28,10 @@ export async function Footer() {
                 {footer.subheader && <p className="text-base lg:text-lg">{footer.subheader}</p>}
               </div>
               {footer.contactImageButton && (
-                <div className="h-40 w-40 lg:w-56 lg:h-56 relative">
+                <div className="h-40 w-40 lg:w-56 lg:h-56 relative flex justify-center items-center">
+                  <div className="h-16 w-16 rounded-full z-[50] flex justify-center items-center">
+                    <FaArrowRightLong className="text-3xl -rotate-[35deg] text-primary" />
+                  </div>
                   <Link
                     href={
                       (footer.contactImageButton[0]?.contactLink as { slug?: string })?.slug || ''
@@ -44,7 +48,7 @@ export async function Footer() {
                       fill
                       loading="lazy"
                       sizes="216px"
-                      className="object-contain"
+                      className="object-contain spin"
                     ></Image>
                   </Link>
                 </div>
