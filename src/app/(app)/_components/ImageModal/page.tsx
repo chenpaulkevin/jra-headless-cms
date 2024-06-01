@@ -11,10 +11,8 @@ interface ImageModalProps {
 }
 
 const ImageModal: React.FC<ImageModalProps> = ({ setIsModalOpen, src, alt, width, height }) => {
-  const imageWidth = parseInt(width) / 2
-  const imageHeight = parseInt(height) / 2
-  const imageHeightClass = imageHeight.toString() + 'px'
-  const imageWidthClass = imageWidth.toString() + 'px'
+  const imageWidth = parseInt(width) / 1
+  const imageHeight = parseInt(height) / 1
   const handleBackgroundClick = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     if (event.target === event.currentTarget) {
       setIsModalOpen(false)
@@ -32,7 +30,7 @@ const ImageModal: React.FC<ImageModalProps> = ({ setIsModalOpen, src, alt, width
       >
         x
       </div>
-      <div className="bg-white relative">
+      <div className="relative">
         <Image
           unoptimized
           src={src}
@@ -40,7 +38,7 @@ const ImageModal: React.FC<ImageModalProps> = ({ setIsModalOpen, src, alt, width
           width={imageWidth}
           height={imageHeight}
           priority
-          className="object-cover"
+          className="object-contain max-h-[80dvh] max-w-[80dvw] rounded-3xl"
         ></Image>
       </div>
     </div>

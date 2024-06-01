@@ -30,10 +30,10 @@ export const ImageCarousel: React.FC<ImageCarouselProps & { id?: string }> = (pr
     updateCurrent()
   }
   return (
-    <section className="container py-8">
+    <section className="lg:container py-8">
       <div className="embla mx-auto w-full lg:w-3/4">
         <div className="embla__viewport " ref={emblaRef}>
-          <div className="embla__container aspect-video">
+          <div className="embla__container w-full h-[60dvh] lg:aspect-video">
             {slider.map((slide: any, index: any) => (
               <div
                 key={index}
@@ -44,7 +44,7 @@ export const ImageCarousel: React.FC<ImageCarouselProps & { id?: string }> = (pr
                   unoptimized
                   alt={slide.image.alt}
                   fill
-                  className="object-contain p-4 lg:p-8 rounded-3xl"
+                  className="object-cover lg:object-fit rounded-3xl"
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 80vw"
                 ></Image>
               </div>
