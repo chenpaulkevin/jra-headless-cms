@@ -35,7 +35,7 @@ export default function ImageLoader({ src, alt }: { src: string; alt: string }) 
         </svg>
       </div>
       <Image
-        src={src || ''}
+        src={myLoader || ''}
         priority={true}
         onLoad={() => imageLoad()}
         fill
