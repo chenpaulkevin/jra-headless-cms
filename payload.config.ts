@@ -33,6 +33,10 @@ const seoUrl =
     ? process.env.NEXT_HOST_URL_LIVE
     : process.env.NEXT_HOST_URL_DEV
 export default buildConfig({
+  serverURL:
+    process.env.NEXT_PUBLIC_IS_LIVE === 'true'
+      ? process.env.NEXT_HOST_URL_LIVE
+      : process.env.NEXT_HOST_URL_DEV,
   //editor: slateEditor({}),
   email: nodemailerAdapter({
     defaultFromAddress: 'noreply@jrahomebuilderscorp.com',
