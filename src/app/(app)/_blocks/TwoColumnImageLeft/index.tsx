@@ -1,7 +1,7 @@
 import React from 'react'
 import type { TwoColumnImageLeftProps } from './types'
-import Image from 'next/image'
 import { orbitron } from '@/assets/fonts'
+import ImageLoader from '../../_components/ImageLoader'
 
 export const TwoColumnImageLeft: React.FC<TwoColumnImageLeftProps & { id?: string }> = (props) => {
   const { header, subheader, featuredImage } = props
@@ -20,15 +20,7 @@ export const TwoColumnImageLeft: React.FC<TwoColumnImageLeftProps & { id?: strin
             </div>
             <div className="flex w-full lg:w-1/2 order-last lg:order-first">
               <div className="w-full h-[350px] lg:h-[500px] overflow-hidden rounded-3xl relative">
-                <Image
-                  src={featuredImage.url}
-                  unoptimized
-                  priority
-                  fill
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  alt={featuredImage.alt}
-                  className="object-cover object-center"
-                ></Image>
+                <ImageLoader src={featuredImage.url} alt={featuredImage.alt}></ImageLoader>
               </div>
             </div>
           </div>

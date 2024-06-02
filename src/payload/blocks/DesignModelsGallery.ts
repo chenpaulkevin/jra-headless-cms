@@ -13,7 +13,7 @@ export const DesignModelsGallery: Block = {
     singular: 'Design Model Gallery Component',
     plural: 'Design Model Gallery Components',
   },
-  imageURL: '/_thumbnails/ContactForm.jpg',
+  imageURL: '/_thumbnails/DesignModelBlock.jpg',
   fields: [
     {
       label: 'Block Header',
