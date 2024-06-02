@@ -29,12 +29,13 @@ export async function Footer() {
               </div>
               {footer.contactImageButton && (
                 <div className="h-40 w-40 lg:w-56 lg:h-56 relative flex justify-center items-center">
-                  <div className="h-16 w-16 rounded-full z-[5] flex justify-center items-center">
+                  <div className="h-16 w-16 rounded-full z-[5] flex justify-center items-center pointer-events-none">
                     <FaArrowRightLong className="text-3xl -rotate-[35deg] text-primary" />
                   </div>
                   <Link
                     href={
-                      (footer.contactImageButton[0]?.contactLink as { slug?: string })?.slug || ''
+                      '/' +
+                        (footer.contactImageButton[0]?.contactLink as { slug?: string })?.slug || ''
                     }
                   >
                     <Image
