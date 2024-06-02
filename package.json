@@ -20,6 +20,7 @@
   "dependencies": {
     "@payloadcms/db-mongodb": "3.0.0-beta.32",
     "@payloadcms/db-postgres": "3.0.0-beta.32",
+    "@payloadcms/email-nodemailer": "^3.0.0-beta.29",
     "@payloadcms/next": "3.0.0-beta.32",
     "@payloadcms/plugin-form-builder": "3.0.0-beta.32",
     "@payloadcms/plugin-seo": "3.0.0-beta.32",
@@ -39,6 +40,7 @@
     "graphql": "^16.8.1",
     "lodash": "^4.17.21",
     "next": "14.3.0-canary.37",
+    "nodemailer": "^6.9.13",
     "payload": "3.0.0-beta.32",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

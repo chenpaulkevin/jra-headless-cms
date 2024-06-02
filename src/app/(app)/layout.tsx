@@ -23,6 +23,7 @@ export async function generateMetadata(): Promise<Metadata> {
   }
 
   return {
+    metadataBase: new URL('https://www.jrahomebuilderscorp.com'),
     title: meta.title || 'JRA Home Builders | Home Contractor in Bacolod and Iloilo',
     description:
       meta.description ||

@@ -4,10 +4,15 @@ import Image from 'next/image'
 
 export default function ImageLoader({ src, alt }: { src: string; alt: string }) {
   const [isLoaded, setIsLoaded] = useState(false)
+  const url = process.env.NEXT_PUBLIC_IS_LIVE
+    ? 'http://localhost:3000'
+    : 'https://www.jrahomebuilderscorp.com'
+  const myLoader = url + `${src}`
 
   useEffect(() => {}, [isLoaded])
   const imageLoad = () => {
     setIsLoaded(true)
+    console.log(myLoader)
   }
   return (
     <>

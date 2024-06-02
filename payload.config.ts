@@ -11,6 +11,7 @@ import Logo from './src/components/Logo'
 import { vercelBlobStorage } from '@payloadcms/storage-vercel-blob'
 import { formBuilderPlugin } from '@payloadcms/plugin-form-builder'
 import { seoPlugin } from '@payloadcms/plugin-seo'
+import { nodemailerAdapter } from '@payloadcms/email-nodemailer'
 
 import { Users } from './src/collections/Users'
 import { Media } from './src/collections/Media'
@@ -33,6 +34,19 @@ const seoUrl =
     : process.env.NEXT_HOST_URL_DEV
 export default buildConfig({
   //editor: slateEditor({}),
+  email: nodemailerAdapter({
+    defaultFromAddress: 'noreply@jrahomebuilderscorp.com',
+    defaultFromName: 'JRA Home Builders Corporation',
+    // Nodemailer transportOptions
+    transportOptions: {
+      host: process.env.SMTP_HOST,
+      port: process.env.SMTP_PORT,
+      auth: {
+        user: process.env.SMTP_USER,
+        pass: process.env.SMTP_PASS,
+      },
+    },
+  }),
   editor: lexicalEditor({
     features: ({ defaultFeatures }) => [
       ...defaultFeatures,
@@ -101,7 +115,7 @@ export default buildConfig({
 
   admin: {
     meta: {
-      titleSuffix: ' - Apexcode CMS',
+      titleSuffix: ' - JRA Home Builders Corp',
       icons: fav,
     },
     components: {

@@ -29,7 +29,7 @@ export async function Footer() {
               </div>
               {footer.contactImageButton && (
                 <div className="h-40 w-40 lg:w-56 lg:h-56 relative flex justify-center items-center">
-                  <div className="h-16 w-16 rounded-full z-[50] flex justify-center items-center">
+                  <div className="h-16 w-16 rounded-full z-[5] flex justify-center items-center">
                     <FaArrowRightLong className="text-3xl -rotate-[35deg] text-primary" />
                   </div>
                   <Link
