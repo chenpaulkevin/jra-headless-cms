@@ -36,7 +36,6 @@ export default function ImageLoader({ src, alt }: { src: string; alt: string }) 
       </div>
       <Image
         src={src || ''}
-        unoptimized
         priority={true}
         onLoad={() => imageLoad()}
         fill
