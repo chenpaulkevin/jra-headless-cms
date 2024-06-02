@@ -30,6 +30,7 @@ const nextConfig = {
         protocol: 'https',
         hostname: '**jra-headless-cms.vercel.app**',
       },
+      { protocol: 'https', hostname: 'sqcpjifsmmvxsmaa.public.blob.vercel-storage.com' },
     ],
   },
   async headers() {
