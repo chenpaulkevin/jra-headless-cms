@@ -14,7 +14,6 @@ export default function PageParser({ page }: { page: any }) {
     depth: 2,
     initialData: page,
   })
-  console.log(JSON.stringify(page))
   return (
     <div>
       <>{page && <Blocks blocks={page?.layout} locale="en" />}</>

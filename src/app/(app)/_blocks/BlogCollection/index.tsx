@@ -32,7 +32,7 @@ export const BlogCollection: React.FC<BlogCollectionProps & { id?: string }> = (
           </div>
           <div className="flex flex-col lg:flex-row w-full gap-8">
             <div className="flex w-full flex-col lg:w-2/5 gap-8">
-              <Link href={'/blog/' + secondaryFeature?.slug || ''}>
+              <Link href={'/blog/' + secondaryFeature?.slug || '4 '}>
                 <div className="h-[400px] w-full rounded-3xl overflow-hidden relative flex flex-col p-8 lg:p-12 text-white justify-end bg-slate-200">
                   <Image
                     unoptimized

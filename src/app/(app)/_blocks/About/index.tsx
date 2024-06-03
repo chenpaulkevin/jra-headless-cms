@@ -26,8 +26,8 @@ export const About: React.FC<AboutProps & { id?: string }> = (props) => {
                       key={index}
                       className="w-full h-fit bg-primary text-white rounded-3xl flex flex-col px-6 py-12"
                     >
-                      <h1 className="text-2xl font-semibold">{milestone.value}+</h1>
-                      <h3 className="text-base font-semibold">{milestone.label}</h3>
+                      <h1 className="text-2xl font-semibold">{milestone?.value}+</h1>
+                      <h3 className="text-base font-semibold">{milestone?.label}</h3>
                     </div>
                   )
                 } else {
@@ -36,8 +36,8 @@ export const About: React.FC<AboutProps & { id?: string }> = (props) => {
                       key={index}
                       className="w-full h-fit bg-white rounded-3xl flex flex-col px-6 py-12"
                     >
-                      <h1 className="text-2xl font-semibold">{milestone.value}+</h1>
-                      <h3 className="text-base font-semibold">{milestone.label}</h3>
+                      <h1 className="text-2xl font-semibold">{milestone?.value}+</h1>
+                      <h3 className="text-base font-semibold">{milestone?.label}</h3>
                     </div>
                   )
                 }
