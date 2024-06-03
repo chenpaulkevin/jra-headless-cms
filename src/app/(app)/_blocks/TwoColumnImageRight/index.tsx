@@ -21,7 +21,10 @@ export const TwoColumnImageRight: React.FC<TwoColumnImageRightProps & { id?: str
             </div>
             <div className="flex w-full lg:w-1/2">
               <div className="w-full h-[350px] lg:h-[500px] overflow-hidden rounded-3xl relative">
-                <ImageLoader src={featuredImage.url} alt={featuredImage.alt}></ImageLoader>
+                <ImageLoader
+                  src={featuredImage?.url || ''}
+                  alt={featuredImage?.alt || ''}
+                ></ImageLoader>
               </div>
             </div>
           </div>

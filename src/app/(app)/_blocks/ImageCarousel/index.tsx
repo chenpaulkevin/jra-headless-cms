@@ -39,14 +39,10 @@ export const ImageCarousel: React.FC<ImageCarouselProps & { id?: string }> = (pr
                 key={index}
                 className="embla__slide relative h-full bg-lightGray flex justify-center items-center text-xl font-bold rounded-3xl overflow-hidden shadow-sm"
               >
-                <Image
-                  src={slide.image.url}
-                  unoptimized
-                  alt={slide.image.alt}
-                  fill
-                  className="object-cover lg:object-fit rounded-3xl"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 80vw"
-                ></Image>
+                <ImageLoader
+                  src={slide.image?.url || ''}
+                  alt={slide.image?.alt || ''}
+                ></ImageLoader>
               </div>
             ))}
           </div>

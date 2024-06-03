@@ -1,6 +1,7 @@
 import Blocks from '../_components/Blocks'
 import fetchPage from '@/payload/utils/fetchPage'
 import { orbitron } from '@/assets/fonts'
+import PageParser from './PageParser'
 
 export const revalidate = 0
 
@@ -25,7 +26,7 @@ const Page = async ({ params }: { params: { slug: string } }) => {
       </>
     )
   } else {
-    return <>{page && <Blocks blocks={page?.layout} locale="en" />}</>
+    return <>{page && <PageParser page={page} />}</>
   }
 }
 

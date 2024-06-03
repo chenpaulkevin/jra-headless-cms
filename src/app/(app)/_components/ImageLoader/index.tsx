@@ -13,10 +13,10 @@ export default function ImageLoader({ src, alt }: { src: string; alt: string }) 
     <>
       <div
         className={
-          isLoaded
+          isLoaded && src
             ? 'hidden'
             : '' +
-              ' top-0 left-0 w-full h-full absolute bg-slate-200 rounded-3xl animate-pulse flex justify-center items-center'
+              ' top-0 z-1 left-0 w-full h-full absolute bg-slate-200 rounded-3xl animate-pulse flex justify-center items-center'
         }
       >
         <svg

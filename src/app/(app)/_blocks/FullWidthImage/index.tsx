@@ -10,14 +10,10 @@ export const FullWidthImage: React.FC<FullWidthImageProps & { id?: string }> = (
 
   useEffect(() => {}, [isLoaded])
 
-  const imageLoad = () => {
-    setIsLoaded(true)
-    console.log('set')
-  }
   return (
     <section className="container py-8">
       <div className="w-full aspect-video overflow-hidden rounded-3xl relative">
-        <ImageLoader src={image.url || ''} alt={image.alt || ''} />
+        <ImageLoader src={image?.url || ''} alt={image?.alt || ''} />
       </div>
     </section>
   )

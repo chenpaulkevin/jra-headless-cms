@@ -30,13 +30,10 @@ const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
 const seoUrl =
   process.env.NEXT_PUBLIC_IS_LIVE === 'true'
-    ? process.env.NEXT_HOST_URL_LIVE
-    : process.env.NEXT_HOST_URL_DEV
+    ? process.env.NEXT_PUBLIC_HOST_URL_LIVE
+    : process.env.NEXT_PUBLIC_HOST_URL_DEV
 export default buildConfig({
-  serverURL:
-    process.env.NEXT_PUBLIC_IS_LIVE === 'true'
-      ? process.env.NEXT_HOST_URL_LIVE
-      : process.env.NEXT_HOST_URL_DEV,
+  serverURL: seoUrl,
   //editor: slateEditor({}),
   email: nodemailerAdapter({
     defaultFromAddress: 'noreply@jrahomebuilderscorp.com',
@@ -129,6 +126,15 @@ export default buildConfig({
         Logo,
         Icon,
       },
+    },
+    livePreview: {
+      url: ({ data, locale }) => `${seoUrl}/${data.slug}${locale ? `?locale=${locale.code}` : ''}`,
+      collections: ['pages'],
+      breakpoints: [
+        { label: 'Mobile', name: 'mobile', width: 375, height: 667 },
+        { label: 'Tablet', name: 'tablet', width: 768, height: 1024 },
+        { label: 'Desktop', name: 'desktop', width: 1440, height: 900 },
+      ],
     },
   },
   // Sharp is now an optional dependency -

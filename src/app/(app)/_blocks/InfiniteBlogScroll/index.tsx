@@ -159,8 +159,8 @@ export const InfiniteBlogScroll: React.FC<InfiniteBlogScrollProps & { id?: strin
             <option value="All Categories">All Categories</option>
             {categories &&
               categories.docs.map((category, i) => (
-                <option key={i} value={category.title}>
-                  {category.title}
+                <option key={i} value={category?.title || ''}>
+                  {category?.title || ''}
                 </option>
               ))}
           </select>
@@ -178,13 +178,13 @@ export const InfiniteBlogScroll: React.FC<InfiniteBlogScrollProps & { id?: strin
               className="w-full flex items-center justify-center h-fit my-8"
             >
               <BlogCard
-                blogImageUrl={blog.blogImage.url}
-                blogImageAlt={blog.blogImage.alt}
-                createdAt={blog.createdAt}
-                readTime={blog.readTime}
-                title={blog.title}
-                description={blog.description}
-                categories={blog.categories.title}
+                blogImageUrl={blog?.blogImage?.url || ''}
+                blogImageAlt={blog?.blogImage?.alt || ''}
+                createdAt={blog?.createdAt || ''}
+                readTime={blog?.readTime || ''}
+                title={blog?.title || ''}
+                description={blog?.description || ''}
+                categories={blog?.categories?.title || ''}
               />
             </Link>
           ))}

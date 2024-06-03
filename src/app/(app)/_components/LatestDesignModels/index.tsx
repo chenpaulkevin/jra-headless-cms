@@ -73,16 +73,16 @@ export default function LatestDesignModels() {
           ) : (
             data?.docs.map((model) => (
               <Link
-                href={`/gallery/${model.slug}`}
-                key={model.slug}
+                href={`/gallery/${model?.slug}`}
+                key={model?.slug || ''}
                 className="flex flex-col gap-4 w-full md:w-[45%] xl:w-1/4 h-fit rounded-3xl"
               >
                 <GalleryCard
-                  featuredImageUrl={(model.featuredImage as { url: string })?.url}
-                  featuredImageAlt={(model.featuredImage as { alt: string })?.alt}
-                  title={model.title}
-                  categories={model.category?.title}
-                  floorArea={model.floorArea}
+                  featuredImageUrl={(model?.featuredImage as { url: string })?.url}
+                  featuredImageAlt={(model?.featuredImage as { alt: string })?.alt}
+                  title={model?.title || ''}
+                  categories={model.category?.title || ''}
+                  floorArea={model?.floorArea || ''}
                 />
               </Link>
             ))

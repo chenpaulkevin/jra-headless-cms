@@ -13,28 +13,28 @@ export const Testimonials: React.FC<TestimonialsProps & { id?: string }> = (prop
           <HeaderTitleCard blockHeader={blockHeader} blockDescription={blockDescription} />
           <div className="flex flex-col xl:flex-row justify-between items-start gap-8 py-8">
             <TestimonialCard
-              title={firstTestimonial.title}
-              description={firstTestimonial.testimonialDescription}
-              customerName={firstTestimonial.customerName}
-              service={firstTestimonial.service}
-              rating={firstTestimonial.customerRating}
-              customerImage={firstTestimonial?.customerImage?.url}
+              title={firstTestimonial?.title || ''}
+              description={firstTestimonial?.testimonialDescription || ''}
+              customerName={firstTestimonial?.customerName || ''}
+              service={firstTestimonial?.service || ''}
+              rating={firstTestimonial?.customerRating || ''}
+              customerImage={firstTestimonial?.customerImage?.url || ''}
             ></TestimonialCard>
             <TestimonialCard
-              title={secondTestimonial.title}
-              description={secondTestimonial.testimonialDescription}
-              customerName={secondTestimonial.customerName}
-              service={secondTestimonial.service}
-              rating={secondTestimonial.customerRating}
-              customerImage={secondTestimonial?.customerImage?.url}
+              title={secondTestimonial?.title || ''}
+              description={secondTestimonial?.testimonialDescription || ''}
+              customerName={secondTestimonial?.customerName || ''}
+              service={secondTestimonial?.service || ''}
+              rating={secondTestimonial?.customerRating || ''}
+              customerImage={secondTestimonial?.customerImage?.url || ''}
             ></TestimonialCard>
             <TestimonialCard
-              title={thirdTestimonial.title}
-              description={thirdTestimonial.testimonialDescription}
-              customerName={thirdTestimonial.customerName}
-              service={thirdTestimonial.service}
-              rating={thirdTestimonial.customerRating}
-              customerImage={thirdTestimonial?.customerImage?.url}
+              title={thirdTestimonial?.title || ''}
+              description={thirdTestimonial?.testimonialDescription || ''}
+              customerName={thirdTestimonial?.customerName || ''}
+              service={thirdTestimonial?.service || ''}
+              rating={thirdTestimonial?.customerRating || ''}
+              customerImage={thirdTestimonial?.customerImage?.url || ''}
             ></TestimonialCard>
           </div>
         </div>

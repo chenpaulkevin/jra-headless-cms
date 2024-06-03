@@ -17,7 +17,6 @@ export const Hero: React.FC<HeroProps & { id?: string }> = (props) => {
         <div className="flex flex-col w-full lg:w-1/2 h-fit lg:h-full gap-12 lg:gap-8">
           <div className="flex flex-col w-full h-fit lg:h-3/5 rounded-3xl justify-between gap-4">
             <div className="flex flex-col w-full gap-4">
-              {' '}
               <h1
                 className={orbitron.className + ' text-2xl 2xl:text-4xl font-black leading-tight'}
               >
@@ -60,17 +59,17 @@ export const Hero: React.FC<HeroProps & { id?: string }> = (props) => {
         <div className="flex flex-col w-full lg:w-1/2 h-fit lg:h-full gap-8">
           <div className="relative flex flex-col overflow-hidden justify-between w-full h-[300px] lg:h-3/5 rounded-3xl p-8 bg-center">
             <ImageLoader
-              src={mainFeature.featuredImage.url || ''}
-              alt={mainFeature.featuredImage.alt || ''}
+              src={mainFeature?.featuredImage?.url || ''}
+              alt={mainFeature?.featuredImage?.alt || ''}
             />
             <div className="w-fit z-[3]">
               <div className="px-4 py-2 uppercase text-sm bg-blackPrimary text-white rounded-lg">
-                {mainFeature.title}
+                {mainFeature?.title || ''}
               </div>
             </div>
             <div className="self-end z-[3]">
               <SecondaryButtonSmall
-                url={'/gallery/' + mainFeature.slug}
+                url={'/gallery/' + (mainFeature?.slug || '')}
                 title={'View Model →'}
               ></SecondaryButtonSmall>
             </div>
@@ -78,34 +77,34 @@ export const Hero: React.FC<HeroProps & { id?: string }> = (props) => {
           <div className="flex flex-col lg:flex-row w-full h-2/5 rounded-3xl gap-8">
             <div className="relative overflow-hidden flex flex-col justify-between w-full lg:w-1/2 h-[300px] lg:h-full rounded-3xl p-8">
               <ImageLoader
-                src={secondFeature?.featuredImage.url || ''}
-                alt={secondFeature?.featuredImage.alt || ''}
+                src={secondFeature?.featuredImage?.url || ''}
+                alt={secondFeature?.featuredImage?.alt || ''}
               />
               <div className="w-fit z-[3]">
                 <div className="px-4 py-2 uppercase text-sm bg-blackPrimary text-white rounded-lg">
-                  {secondFeature?.title}
+                  {secondFeature?.title || ''}
                 </div>
               </div>
               <div className="self-end z-[3]">
                 <SecondaryButtonSmall
-                  url={'/designModels/' + secondFeature?.slug}
+                  url={'/designModels/' + (secondFeature?.slug || '')}
                   title={'View Model →'}
                 ></SecondaryButtonSmall>
               </div>
             </div>
             <div className="relative overflow-hidden flex flex-col justify-between w-full lg:w-1/2 h-[300px] lg:h-full rounded-3xl p-8">
               <ImageLoader
-                src={thirdFeature?.featuredImage.url || ''}
-                alt={thirdFeature?.featuredImage.alt || ''}
+                src={thirdFeature?.featuredImage?.url || ''}
+                alt={thirdFeature?.featuredImage?.alt || ''}
               />
               <div className="w-fit z-[3]">
                 <div className="px-4 py-2 uppercase text-sm bg-blackPrimary text-white rounded-lg">
-                  {thirdFeature?.title}
+                  {thirdFeature?.title || ''}
                 </div>
               </div>
               <div className="self-end z-[3]">
                 <SecondaryButtonSmall
-                  url={'/designModels/' + thirdFeature?.slug}
+                  url={'/designModels/' + (thirdFeature?.slug || '')}
                   title={'View Model →'}
                 ></SecondaryButtonSmall>
               </div>

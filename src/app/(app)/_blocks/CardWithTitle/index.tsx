@@ -12,14 +12,17 @@ export const CardWithTitle: React.FC<CardWithTitleProps & { id?: string }> = (pr
           {cards.map((card, i) => (
             <div key={i} className="w-full  flex flex-col lg:h-[520px] gap-4 lg:gap-8">
               <div className="w-full h-[350px] relative overflow-hidden rounded-2xl">
-                <ImageLoader src={card.image.url} alt={card.image.alt}></ImageLoader>
+                <ImageLoader
+                  src={card?.image?.url || ''}
+                  alt={card?.image?.alt || ''}
+                ></ImageLoader>
               </div>
               <div className="flex flex-col gap-2 ">
-                <h1 className={orbitron.className + ' text-lg lg:text-xl font-bold w-full'}>
-                  {card.label}
+                <h1 className={orbitron?.className + ' text-lg lg:text-xl font-bold w-full'}>
+                  {card?.label || ''}
                 </h1>
                 <p className="text-base text-gray lg:leading-loose w-full lg:line-clamp-2">
-                  {card.description}
+                  {card?.description || ''}
                 </p>
               </div>
             </div>

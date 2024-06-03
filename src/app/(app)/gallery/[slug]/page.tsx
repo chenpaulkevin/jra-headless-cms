@@ -63,9 +63,10 @@ export default async function Page({ params }: { params: { slug: string } }) {
     notFound()
   }
   const designModel = result.docs[0]
+  const page = result.docs?.[0]
   return (
     <>
-      <GalleryParser designModel={designModel} />
+      <GalleryParser designModel={designModel} page={page} />
     </>
   )
 }

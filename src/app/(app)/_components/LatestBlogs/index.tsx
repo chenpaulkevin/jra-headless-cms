@@ -72,16 +72,16 @@ export default function LatestBlogs() {
           ) : (
             data?.docs.map((blog, i) => (
               <Link
-                href={'/blog/' + blog.slug}
+                href={'/blog/' + blog?.slug}
                 key={i}
                 className="flex flex-col gap-4 w-full md:w-[45%] xl:w-1/4 h-fit rounded-3xl"
               >
                 <LatestBlogCard
-                  blogImageUrl={blog.blogImage.url}
-                  blogImageAlt={blog.blogImage.alt}
-                  readTime={blog.readTime}
-                  title={blog.title}
-                  categories={blog.categories.title}
+                  blogImageUrl={blog?.blogImage?.url || ''}
+                  blogImageAlt={blog?.blogImage?.alt || ''}
+                  readTime={blog?.readTime || ''}
+                  title={blog?.title || ''}
+                  categories={blog?.categories?.title || ''}
                 />
               </Link>
             ))

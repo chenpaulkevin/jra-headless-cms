@@ -121,8 +121,8 @@ export const DesignModelsGallery: React.FC<DesignModelsGalleryProps & { id?: str
             <option value="All Categories">All Categories</option>
             {categories &&
               categories.docs.map((category, i) => (
-                <option key={i} value={category.title}>
-                  {category.title}
+                <option key={i} value={category?.title || ''}>
+                  {category?.title || ''}
                 </option>
               ))}
           </select>
@@ -159,8 +159,8 @@ export const DesignModelsGallery: React.FC<DesignModelsGalleryProps & { id?: str
           <option value="All Categories">All Categories</option>
           {categories &&
             categories.docs.map((category, i) => (
-              <option key={i} value={category.title}>
-                {category.title}
+              <option key={i} value={category?.title || ''}>
+                {category?.title || ''}
               </option>
             ))}
         </select>
@@ -168,16 +168,16 @@ export const DesignModelsGallery: React.FC<DesignModelsGalleryProps & { id?: str
       <div className="flex flex-col md:flex-wrap md:flex-row gallery-container gap-8 xl:gap-16 py-8 items-center justify-center">
         {filteredData?.docs.map((model: DesignModel, i) => (
           <Link
-            href={'/gallery/' + model.slug}
+            href={'/gallery/' + model?.slug}
             key={i}
             className="flex flex-col gap-4 w-full md:w-[45%] xl:w-1/4 h-fit rounded-3xl"
           >
             <GalleryCard
               featuredImageUrl={model.featuredImage?.url || ''}
               featuredImageAlt={model.featuredImage?.alt || ''}
-              title={model.title}
-              categories={model.category?.title}
-              floorArea={model.floorArea}
+              title={model?.title || ''}
+              categories={model.category?.title || ''}
+              floorArea={model?.floorArea || ''}
             />
           </Link>
         ))}

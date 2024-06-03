@@ -1,13 +1,12 @@
 'use client'
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import LatestDesignModels from '../../_components/LatestDesignModels'
 import RichTextParser from '@/utilities/RichTextParser'
 import ImageLoader from '../../_components/ImageLoader'
-import useEmblaCarousel from 'embla-carousel-react'
 import ImageModal from '../../_components/ImageModal/page'
 import Blocks from '../../../../app/(app)/_components/Blocks'
 
-export default function GalleryParser({ designModel }: { designModel: any }) {
+export default function GalleryParser({ designModel, page }: { designModel: any; page: any }) {
   const [isModalOpen, setModalOpen] = useState(false)
   return (
     <>
