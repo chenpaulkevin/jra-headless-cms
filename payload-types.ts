@@ -39,7 +39,7 @@ export interface User {
   id: number;
   firstName: string;
   lastName: string;
-  role: 'admin' | 'developer' | 'author';
+  role: 'admin' | 'author';
   updatedAt: string;
   createdAt: string;
   email: string;
@@ -115,11 +115,18 @@ export interface DesignModel {
   };
   featuredImage: number | Media;
   floorPlanImage: number | Media;
-  slider: {
-    image: number | Media;
-    alt: string;
-    id?: string | null;
-  }[];
+  layout?:
+    | {
+        slider: {
+          image: number | Media;
+          alt: string;
+          id?: string | null;
+        }[];
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'imageCarousel';
+      }[]
+    | null;
   slug?: string | null;
   createdBy?: (number | null) | User;
   meta?: {
@@ -289,7 +296,18 @@ export interface Page {
         | {
             headline: string;
             subHeadline: string;
+            buttons: {
+              buttonLabel: string;
+              buttonLink: number | Page;
+              primaryButton?: boolean | null;
+              id?: string | null;
+            }[];
             ctaHeadline: string;
+            ctaLink: {
+              ctaLabel: string;
+              ctaLink: number | Page;
+              id?: string | null;
+            }[];
             mainFeature: number | DesignModel;
             secondFeature: number | DesignModel;
             thirdFeature: number | DesignModel;

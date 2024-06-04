@@ -10,7 +10,17 @@ import SecondaryButtonSmall from '../../_components/SecondaryMiniButton'
 import ImageLoader from '../../_components/ImageLoader'
 
 export const Hero: React.FC<HeroProps & { id?: string }> = (props) => {
-  const { id, headline, subHeadline, ctaHeadline, mainFeature, secondFeature, thirdFeature } = props
+  const {
+    id,
+    headline,
+    subHeadline,
+    ctaHeadline,
+    mainFeature,
+    secondFeature,
+    thirdFeature,
+    buttons,
+    ctaLink,
+  } = props
   return (
     <section className="text-blackPrimary my-4">
       <div className="flex flex-col lg:flex-row w-full h-fit lg:h-[750px] container gap-8 py-4">
@@ -41,8 +51,23 @@ export const Hero: React.FC<HeroProps & { id?: string }> = (props) => {
               </p>
             </div>
             <div className="flex flex-col md:flex-row gap-8 ">
-              <PrimaryButton url={'#'} title={'View Models'}></PrimaryButton>
-              <SecondaryButton url={'#'} title={'Learn More'}></SecondaryButton>
+              {buttons.map((button, index) => (
+                <>
+                  {button.primaryButton ? (
+                    <PrimaryButton
+                      key={index}
+                      url={'/' + (button?.buttonLink as { slug: string })?.slug || ''}
+                      title={button?.buttonLabel || ''}
+                    ></PrimaryButton>
+                  ) : (
+                    <SecondaryButton
+                      key={index}
+                      url={'/' + (button?.buttonLink as { slug: string })?.slug || ''}
+                      title={button?.buttonLabel || ''}
+                    ></SecondaryButton>
+                  )}
+                </>
+              ))}
             </div>
           </div>
           <div className="flex flex-col justify-center items-center w-full h-2/5 bg-lightGray px-8 py-8 md:py-8 md:px-12 lg:px-16 lg:py-4 rounded-3xl">

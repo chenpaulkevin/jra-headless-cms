@@ -42,6 +42,37 @@ export const Hero: Block = {
       },
     },
     {
+      label: 'Hero Buttons',
+      name: 'buttons',
+      type: 'array',
+      required: true,
+      minRows: 2,
+      maxRows: 2,
+      fields: [
+        {
+          label: 'Label',
+          name: 'buttonLabel',
+          type: 'text',
+          required: true,
+          minLength: 2,
+          maxLength: 20,
+        },
+        {
+          label: 'Link',
+          name: 'buttonLink',
+          type: 'relationship',
+          relationTo: 'pages',
+          required: true,
+        },
+        {
+          label: 'Primary Button',
+          name: 'primaryButton',
+          type: 'checkbox',
+          defaultValue: false,
+        },
+      ],
+    },
+    {
       label: 'Call to Action Headline',
       name: 'ctaHeadline',
       required: true,
@@ -53,6 +84,30 @@ export const Hero: Block = {
           Description: () => CharacterCounterWrapper(80),
         },
       },
+    },
+    {
+      name: 'ctaLink',
+      label: 'Call to Action Link',
+      type: 'array',
+      required: true,
+      maxRows: 1,
+      fields: [
+        {
+          label: 'Label',
+          name: 'ctaLabel',
+          type: 'text',
+          required: true,
+          minLength: 2,
+          maxLength: 20,
+        },
+        {
+          label: 'Link',
+          name: 'ctaLink',
+          type: 'relationship',
+          relationTo: 'pages',
+          required: true,
+        },
+      ],
     },
     {
       type: 'row',
