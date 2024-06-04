@@ -1,7 +1,3 @@
-//import type { Page } from '../../../../../payload-types'
-
-//export type AboutProps = Extract<Page['layout'], { blockType: 'about' }>
-
 type featuredImage = {
   readonly url: string
   readonly alt: string

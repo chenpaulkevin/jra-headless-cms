@@ -1,6 +1,6 @@
 import React from 'react'
 import type { TwoColumnImageRightProps } from './types'
-import Image from 'next/image'
+
 import { orbitron } from '@/assets/fonts'
 import ImageLoader from '../../_components/ImageLoader'
 

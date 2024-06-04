@@ -1,7 +1,6 @@
 import React from 'react'
 import { BlogCollectionProps } from './types'
 import PrimaryButton from '../../_components/PrimaryButton'
-import SecondaryButton from '../../_components/SecondaryButton'
 import SecondaryMiniButton from '../../_components/SecondaryMiniButton'
 import Image from 'next/image'
 import Link from 'next/link'

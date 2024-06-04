@@ -1,5 +1,5 @@
 'use client'
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { AnimatePresence, motion, useMotionValueEvent, useScroll } from 'framer-motion'
 import PrimaryButton from '../PrimaryButton'
 import MobileMenu from './MobileMenu'
@@ -35,7 +35,6 @@ export default function Navbar({ header }: { header: any }) {
                       <Image
                         src={(header?.logo as { url?: string })?.url || ''}
                         fill
-                        unoptimized
                         priority
                         sizes="156px"
                         alt={(header?.logo as { alt?: string })?.alt || ''}

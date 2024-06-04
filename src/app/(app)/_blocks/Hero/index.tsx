@@ -1,6 +1,5 @@
 import React from 'react'
 import Link from 'next/link'
-import Image from 'next/image'
 import type { HeroProps } from './types'
 
 import { orbitron } from '@/assets/fonts'

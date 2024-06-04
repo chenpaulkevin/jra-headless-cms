@@ -1,5 +1,4 @@
 import React from 'react'
-import Image from 'next/image'
 import ImageLoader from '@/app/(app)/_components/ImageLoader'
 
 export default function BlogCard({

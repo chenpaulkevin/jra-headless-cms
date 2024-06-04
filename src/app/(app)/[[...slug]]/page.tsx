@@ -1,4 +1,3 @@
-import Blocks from '../_components/Blocks'
 import fetchPage from '@/payload/utils/fetchPage'
 import { orbitron } from '@/assets/fonts'
 import PageParser from './PageParser'

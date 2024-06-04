@@ -1,6 +1,5 @@
 'use client'
 import React, { useEffect, useState } from 'react'
-import Image from 'next/image'
 import ImageLoader from '../../_components/ImageLoader'
 
 export default function GalleryCard({

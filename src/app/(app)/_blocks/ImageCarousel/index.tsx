@@ -1,6 +1,5 @@
 'use client'
 import React, { useCallback, useState } from 'react'
-import Image from 'next/image'
 import { ImageCarouselProps } from './types'
 import ImageLoader from '../../_components/ImageLoader'
 import useEmblaCarousel from 'embla-carousel-react'

@@ -39,7 +39,6 @@ export async function Footer() {
                     }
                   >
                     <Image
-                      unoptimized
                       src={
                         (footer.contactImageButton[0]?.imageButton as { url?: string })?.url || ''
                       }
@@ -64,7 +63,6 @@ export async function Footer() {
                       <Link href="/">
                         <Image
                           src={(footer?.logo as { url?: string })?.url || ''}
-                          unoptimized
                           fill
                           loading="lazy"
                           quality={100}
@@ -85,7 +83,6 @@ export async function Footer() {
                           <Image
                             src={(socialMediaLink?.icon as { url?: string })?.url || ''}
                             alt={(socialMediaLink?.icon as { alt?: string })?.alt || ''}
-                            unoptimized
                             fill
                             loading="lazy"
                             className="object-contain"

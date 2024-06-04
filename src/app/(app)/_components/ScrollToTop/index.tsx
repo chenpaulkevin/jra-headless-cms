@@ -1,7 +1,7 @@
 'use client'
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { FaArrowUp } from 'react-icons/fa'
-import { AnimatePresence, motion, useMotionValueEvent, useScroll } from 'framer-motion'
+import { motion, useMotionValueEvent, useScroll } from 'framer-motion'
 
 export default function ScrollToTop() {
   const [isButtonHidden, setButtonHidden] = useState(false)

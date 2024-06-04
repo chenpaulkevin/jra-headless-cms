@@ -1,6 +1,5 @@
 import React from 'react'
 import Image from 'next/image'
-import ImageLoader from '../ImageLoader'
 
 interface ImageModalProps {
   setIsModalOpen: any
@@ -32,12 +31,10 @@ const ImageModal: React.FC<ImageModalProps> = ({ setIsModalOpen, src, alt, width
       </div>
       <div className="relative">
         <Image
-          unoptimized
           src={src || ''}
           alt={alt || ''}
           width={imageWidth || 0}
           height={imageHeight || 0}
-          priority
           className="object-contain max-h-[80dvh] max-w-[80dvw] rounded-3xl"
         ></Image>
       </div>
