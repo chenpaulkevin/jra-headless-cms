@@ -18,6 +18,9 @@ body {
   animation-iteration-count: infinite;
   animation-timing-function: linear;
 }
+.will-change-transform {
+  will-change: transform;
+}
 
 @keyframes spin {
   from {

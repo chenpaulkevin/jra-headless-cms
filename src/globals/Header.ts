@@ -38,10 +38,10 @@ export const Header: GlobalConfig = {
               type: 'text',
               required: true,
               minLength: 2,
-              maxLength: 20,
+              maxLength: 12,
               admin: {
                 components: {
-                  Description: () => CharacterCounterWrapper(20),
+                  Description: () => CharacterCounterWrapper(12),
                 },
               },
             },
@@ -62,7 +62,7 @@ export const Header: GlobalConfig = {
       name: 'navLinks',
       type: 'array',
       required: true,
-      maxRows: 7,
+      maxRows: 5,
       fields: [
         {
           label: 'Label',
@@ -70,10 +70,10 @@ export const Header: GlobalConfig = {
           type: 'text',
           required: true,
           minLength: 2,
-          maxLength: 20,
+          maxLength: 10,
           admin: {
             components: {
-              Description: () => CharacterCounterWrapper(20),
+              Description: () => CharacterCounterWrapper(10),
             },
           },
         },

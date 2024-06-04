@@ -1,15 +1,15 @@
 'use client'
-import { animate, motion } from 'framer-motion'
+import { motion } from 'framer-motion'
 
 const stairAnimation = {
   initial: {
-    bottom: '0%',
+    transform: 'translateY(0%)',
   },
   animate: {
-    bottom: '100%',
+    transform: 'translateY(100%)',
   },
   exit: {
-    bottom: ['100%', '0%'],
+    transform: 'translateY(0%)',
   },
 }
 
@@ -30,7 +30,7 @@ const Stairs: React.FC = () => {
             animate="animate"
             exit="exit"
             transition={{ duration: 0.4, ease: 'easeInOut', delay: reverseIndex(index) * 0.1 }}
-            className="h-full w-full bg-primary relative"
+            className="h-[100dvh] w-1/6 bg-primary will-change-transform"
           ></motion.div>
         )
       })}
