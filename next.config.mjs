@@ -13,10 +13,11 @@ const nextConfig = {
     formats: ['image/webp'],
     dangerouslyAllowSVG: true,
     minimumCacheTTL: 6000,
+    domains: ['sqcpjifsmmvxsmaa.public.blob.vercel-storage.com'],
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: `${process.env.NEXT_PUBLIC_SERVER_URL}`,
+        hostname: process.env.NEXT_PUBLIC_HOST_URL_LIVE, // Ensure this environment variable is set
       },
       {
         protocol: 'http',
@@ -24,22 +25,22 @@ const nextConfig = {
       },
       {
         protocol: 'https',
-        hostname: '**jrahomebuilderscorp.com**',
+        hostname: '*.jrahomebuilderscorp.com',
       },
       {
         protocol: 'https',
-        hostname: '**jra-headless-cms.vercel.app**',
+        hostname: '*.jra-headless-cms.vercel.app',
       },
-      { protocol: 'https', hostname: '**public.blob.vercel-storage.com**' },
+      {
+        protocol: 'https',
+        hostname: '*.public.blob.vercel-storage.com',
+      },
     ],
   },
   async headers() {
     const headers = []
 
     // Prevent search engines from indexing the site if it is not live
-    // This is useful for staging environments before they are ready to go live
-    // To allow robots to crawl the site, use the `NEXT_PUBLIC_IS_LIVE` env variable
-    // You may want to also use this variable to conditionally render any tracking scripts
     if (!process.env.NEXT_PUBLIC_IS_LIVE) {
       headers.push({
         headers: [
@@ -52,9 +53,7 @@ const nextConfig = {
       })
     }
 
-    // Set the `Content-Security-Policy` header as a security measure to prevent XSS attacks
-    // It works by explicitly whitelisting trusted sources of content for your website
-    // This will block all inline scripts and styles except for those that are allowed
+    // Uncomment and define `policies` if you need Content-Security-Policy
     /*headers.push({
       source: '/(.*)',
       headers: [
