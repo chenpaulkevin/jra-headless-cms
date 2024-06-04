@@ -19,7 +19,7 @@ export const ImageCarousel: Block = {
       name: 'slider',
       type: 'array',
       minRows: 1,
-      maxRows: 10,
+      maxRows: 8,
       required: true,
       fields: [
         {
