@@ -3,7 +3,12 @@ import React from 'react'
 import RichTextParser from '@/utilities/RichTextParser'
 import ImageLoader from '../../_components/ImageLoader'
 import LatestBlogs from '../../_components/LatestBlogs'
+import Image from 'next/image'
+import { FacebookShareButton, LinkedinShareButton, TwitterShareButton } from 'react-share'
+
 export default function BlogParser({ blog }: { blog: any }) {
+  const shareUrl = typeof window !== 'undefined' ? window.location.href : ''
+  console.log(shareUrl)
   const date = new Date(blog.createdAt)
   const articleDate = date.toLocaleDateString()
   return (
@@ -25,6 +30,38 @@ export default function BlogParser({ blog }: { blog: any }) {
             Author: {(blog.createdBy as { firstName: string })?.firstName}{' '}
             {(blog.createdBy as { lastName: string })?.lastName}
           </div>
+        </div>
+        <div className="flex gap-12 mt-4">
+          <FacebookShareButton url={shareUrl} title={(blog.categories as { title: string })?.title}>
+            <div className="h-12 w-12 overflow-hidden rounded-full relative cursor-pointer">
+              <Image
+                src="/facebookSVG.svg"
+                alt="Share on Facebook"
+                fill
+                className="object-scale-down object-top"
+              ></Image>
+            </div>
+          </FacebookShareButton>
+          <TwitterShareButton url={shareUrl} title={(blog.categories as { title: string })?.title}>
+            <div className="h-12 w-12 overflow-hidden rounded-full relative cursor-pointer">
+              <Image
+                src="/twitterSVG.svg"
+                alt="Share on Facebook"
+                fill
+                className="object-scale-down object-top"
+              ></Image>
+            </div>
+          </TwitterShareButton>
+          <LinkedinShareButton url={shareUrl} title={(blog.categories as { title: string })?.title}>
+            <div className="h-12 w-12 overflow-hidden rounded-full relative cursor-pointer">
+              <Image
+                src="/linkedInSVG.svg"
+                alt="Share on Facebook"
+                fill
+                className="object-scale-down object-top"
+              ></Image>
+            </div>
+          </LinkedinShareButton>
         </div>
       </div>
       <div className="relative w-full h-[350px] lg:h-[750px] rounded-2xl overflow-hidden my-8">
