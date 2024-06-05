@@ -38,6 +38,8 @@ export async function generateMetadata(): Promise<Metadata> {
       description:
         meta.description ||
         'JRA is a licensed contractor specializing in home building and renovation services.',
+      siteName: 'JRA Home Builders Corporation',
+      url: new URL('https://www.jrahomebuilderscorp.com'),
       images: [
         {
           url: (meta.seoImage as { url: string })?.url || '/ogImage.png',
