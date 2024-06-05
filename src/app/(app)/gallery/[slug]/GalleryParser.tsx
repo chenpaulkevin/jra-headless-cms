@@ -90,7 +90,7 @@ export default function GalleryParser({ designModel }: { designModel: any }) {
               </div>
             </div>
             <div
-              className="floorplan relative h-[400px] bg-amber-300 w-full p-8 cursor-zoom-in"
+              className="floorplan relative h-[400px] w-full p-8 cursor-zoom-in"
               onClick={() =>
                 handleImageClick((designModel?.floorPlanImage as { url: string })?.url)
               }
