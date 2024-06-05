@@ -51,21 +51,19 @@ export const Hero: React.FC<HeroProps & { id?: string }> = (props) => {
             </div>
             <div className="flex flex-col md:flex-row gap-8 ">
               {buttons.map((button, index) => (
-                <>
+                <div key={index}>
                   {button.primaryButton ? (
                     <PrimaryButton
-                      key={index}
                       url={'/' + (button?.buttonLink as { slug: string })?.slug || ''}
                       title={button?.buttonLabel || ''}
                     ></PrimaryButton>
                   ) : (
                     <SecondaryButton
-                      key={index}
                       url={'/' + (button?.buttonLink as { slug: string })?.slug || ''}
                       title={button?.buttonLabel || ''}
                     ></SecondaryButton>
                   )}
-                </>
+                </div>
               ))}
             </div>
           </div>

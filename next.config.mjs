@@ -13,7 +13,6 @@ const nextConfig = {
     formats: ['image/webp'],
     dangerouslyAllowSVG: true,
     minimumCacheTTL: 6000,
-    domains: ['sqcpjifsmmvxsmaa.public.blob.vercel-storage.com'],
     remotePatterns: [
       {
         protocol: 'https',
@@ -33,7 +32,7 @@ const nextConfig = {
       },
       {
         protocol: 'https',
-        hostname: '*.public.blob.vercel-storage.com',
+        hostname: 'sqcpjifsmmvxsmaa.public.blob.vercel-storage.com',
       },
     ],
   },
