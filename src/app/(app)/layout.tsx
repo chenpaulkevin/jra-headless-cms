@@ -12,11 +12,10 @@ import type { Metadata } from 'next'
 import PageTransition from '@/app/(app)/_components/PageTransition'
 import TransitionWrapper from './TransitionWrapper'
 import ScrollToTop from './_components/ScrollToTop'
+
 export async function generateMetadata(): Promise<Metadata> {
   const payload = await getPayloadHMR({ config: configPromise })
-  const meta = await payload.findGlobal({
-    slug: 'metadata',
-  })
+  const meta = await payload.findGlobal({ slug: 'metadata' })
 
   if (!meta || Object.keys(meta).length === 0) {
     return { title: 'JRA Home Builders | Home Contractor in Bacolod and Iloilo' }
@@ -48,6 +47,7 @@ export async function generateMetadata(): Promise<Metadata> {
         },
       ],
     },
+    keywords: meta.keywords?.map((keywordObj: { keyword: string }) => keywordObj.keyword) || [],
   }
 }
 
