@@ -32,7 +32,7 @@ export const Media: CollectionConfig = {
       options: {
         mozjpeg: true,
         progressive: true,
-        quality: 80,
+        quality: 85,
       },
     },
   },
