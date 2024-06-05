@@ -3,7 +3,6 @@ import slug from '../fields/slug'
 import { isAdminOrAuthor } from '../access/isAdminOrAuthor'
 import createdBy from '../fields/createdBy'
 import CharacterCounterWrapper from '@/components/CharacterCounterWrapper'
-import { FullWidthImage } from '@/payload/blocks/FullWidthImage'
 import { ImageCarousel } from '@/payload/blocks/ImageCarousel'
 import { isAdmin } from '@/access/isAdmin'
 

@@ -25,6 +25,8 @@ import { ModelsCategories } from './src/collections/ModelsCategories'
 import { Header } from '@/globals/Header'
 import { Footer } from '@/globals/Footer'
 import { Metadata } from '@/globals/Metadata'
+import { isAdmin } from '@/access/isAdmin'
+import { isAdminOrAuthor } from '@/access/isAdminOrAuthor'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -171,10 +173,22 @@ export default buildConfig({
         admin: {
           group: 'Forms',
         },
+        access: {
+          create: isAdmin,
+          read: () => true,
+          update: isAdminOrAuthor,
+          delete: isAdmin,
+        },
       },
       formSubmissionOverrides: {
         admin: {
           group: 'Forms',
+        },
+        access: {
+          create: isAdmin,
+          read: () => true,
+          update: isAdminOrAuthor,
+          delete: isAdmin,
         },
       },
       fields: {
