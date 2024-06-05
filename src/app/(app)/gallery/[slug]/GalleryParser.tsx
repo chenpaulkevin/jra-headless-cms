@@ -29,8 +29,8 @@ export default function GalleryParser({ designModel }: { designModel: any }) {
     <>
       <section className="text-blackPrimary pt-8">
         <div className="container flex flex-col">
-          <div className="flex justify-between items-center mb-4">
-            <h1 className="title-clamp font-bold text-primaryBlack whitespace-nowrap">
+          <div className="flex flex-col md:flex-row gap-2 md:justify-between md:items-center mb-8 md:mb-4">
+            <h1 className="title-clamp font-bold text-primaryBlack whitespace-nowrap truncate">
               {designModel?.title || ''}
             </h1>
             <div className="flex text-sm font-semibold text-primaryBlack gap-4">
@@ -50,7 +50,7 @@ export default function GalleryParser({ designModel }: { designModel: any }) {
               alt={(designModel?.featuredImage as { alt: string })?.alt || ''}
             />
           </div>
-          <div className="flex flex-col lg:flex-row justify-center items-center gap-16 pt-8 px-16">
+          <div className="flex flex-col lg:flex-row justify-center items-center gap-16 pt-8 lg:px-16">
             <div className="flex flex-col gap-8">
               <div className="flex gap-8 text-blackPrimary items-center">
                 <div className="text-xl">
@@ -90,7 +90,7 @@ export default function GalleryParser({ designModel }: { designModel: any }) {
               </div>
             </div>
             <div
-              className="floorplan relative h-[400px] w-[400px] p-8 cursor-zoom-in"
+              className="floorplan relative h-[400px] bg-amber-300 w-full p-8 cursor-zoom-in"
               onClick={() =>
                 handleImageClick((designModel?.floorPlanImage as { url: string })?.url)
               }
