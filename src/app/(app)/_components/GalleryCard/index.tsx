@@ -23,14 +23,15 @@ export default function GalleryCard({
   }
   return (
     <>
-      <div className="flex rounded-3xl w-full h-[350px] justify-center items-center relative overflow-hidden mb-4">
+      <div className="flex rounded-3xl w-full h-[300px] justify-center items-center relative overflow-hidden">
         <ImageLoader src={featuredImageUrl || ''} alt={featuredImageAlt || ''} />
       </div>
-
-      <div className="flex">
-        <h1 className="blog-title-clamp font-bold text-blackPrimary white-space-nowrap">{title}</h1>
+      <div className="flex h-fit">
+        <h1 className="blog-title-clamp font-bold text-blackPrimary white-space-nowrap truncate leading-none">
+          {title}
+        </h1>
       </div>
-      <div className="flex gap-4">
+      <div className="flex gap-4 -mt-3">
         <div className="text-gray text-base">{floorArea} square meters</div>
         <div className="text-gray text-base">-</div>
         <div className="text-gray text-base">{categories}</div>

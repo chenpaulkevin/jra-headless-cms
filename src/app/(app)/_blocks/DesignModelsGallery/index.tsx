@@ -165,7 +165,7 @@ export const DesignModelsGallery: React.FC<DesignModelsGalleryProps & { id?: str
             ))}
         </select>
       </div>
-      <div className="flex flex-col md:flex-wrap md:flex-row gallery-container gap-8 xl:gap-16 py-8 items-center justify-center">
+      <div className="flex flex-col md:flex-wrap md:flex-row gallery-container gap-8 xl:gap-20 py-12 items-center justify-center">
         {filteredData?.docs.map((model: DesignModel, i) => (
           <Link
             href={'/gallery/' + model?.slug}
