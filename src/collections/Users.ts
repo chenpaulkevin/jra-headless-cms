@@ -55,6 +55,14 @@ export const Users: CollectionConfig = {
       type: 'select',
       required: true,
       defaultValue: 'author',
+      admin: {
+        condition: () => (!isAdmin ? false : true),
+      },
+      access: {
+        read: () => true,
+        update: () => (!isAdmin ? false : true),
+        create: () => (!isAdmin ? false : true),
+      },
       options: [
         {
           label: 'Admin',
