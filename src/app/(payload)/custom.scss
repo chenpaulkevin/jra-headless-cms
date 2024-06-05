@@ -1,11 +1,12 @@
-@tailwind components;
-@tailwind utilities;
-
 .template-minimal {
   background-color: black !important;
 }
 
 .collection-list__header h1 {
+  font-size: 3rem;
+  font-weight: 600;
+}
+.doc-header__title .render-title {
   font-size: 3rem;
   font-weight: 600;
 }
