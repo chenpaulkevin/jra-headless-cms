@@ -34,7 +34,6 @@ export const BlogCollection: React.FC<BlogCollectionProps & { id?: string }> = (
               <Link href={'/blog/' + secondaryFeature?.slug || '4 '}>
                 <div className="h-[400px] w-full rounded-3xl overflow-hidden relative flex flex-col p-8 lg:p-12 text-white justify-end bg-slate-200">
                   <Image
-                    unoptimized
                     src={secondaryFeature?.blogImage?.url || '' || ''}
                     fill
                     className="z-0 object-cover"
@@ -56,7 +55,6 @@ export const BlogCollection: React.FC<BlogCollectionProps & { id?: string }> = (
               <Link href={'/blog/' + thirdFeature?.slug || ''}>
                 <div className="h-[400px] w-full rounded-3xl overflow-hidden relative flex flex-col p-8 lg:p-12 text-white justify-end bg-slate-200">
                   <Image
-                    unoptimized
                     src={thirdFeature?.blogImage?.url || ''}
                     fill
                     className="z-0 object-cover"
@@ -80,7 +78,6 @@ export const BlogCollection: React.FC<BlogCollectionProps & { id?: string }> = (
               <Link href={'/blog/' + mainFeature?.slug || ''} passHref legacyBehavior>
                 <div className="cursor-pointer lg:h-full h-[400px] w-full rounded-3xl relative overflow-hidden flex flex-col p-8 lg:p-12 text-white justify-end bg-slate-200">
                   <Image
-                    unoptimized
                     src={mainFeature?.blogImage?.url || ''}
                     fill
                     className="z-0 object-cover"
