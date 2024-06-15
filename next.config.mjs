@@ -37,33 +37,41 @@ const nextConfig = {
     ],
   },
   async headers() {
-    const headers = []
-
-    // Prevent search engines from indexing the site if it is not live
-    if (!process.env.NEXT_PUBLIC_IS_LIVE) {
-      headers.push({
+    return [
+      {
+        source: '/(.*)', // Apply these headers to all routes
         headers: [
           {
-            key: 'X-Robots-Tag',
-            value: 'noindex',
+            key: 'X-Frame-Options',
+            value: 'DENY', // Prevent clickjacking attacks
+          },
+          {
+            key: 'X-Content-Type-Options',
+            value: 'nosniff', // Prevent MIME type sniffing
+          },
+          {
+            key: 'Referrer-Policy',
+            value: 'no-referrer-when-downgrade', // Control the information sent in the Referer header
+          },
+          {
+            key: 'Content-Security-Policy',
+            value: "default-src 'self'; script-src 'self'; object-src 'none';", // Define approved sources for content
+          },
+          {
+            key: 'Strict-Transport-Security',
+            value: 'max-age=31536000; includeSubDomains; preload', // Enforce HTTPS
+          },
+          {
+            key: 'Feature-Policy',
+            value: "geolocation 'self'; microphone 'none'; camera 'none'", // Control browser features
+          },
+          {
+            key: 'Permissions-Policy',
+            value: 'geolocation=(self), microphone=()', // Control access to browser features
           },
         ],
-        source: '/:path*',
-      })
-    }
-
-    // Uncomment and define `policies` if you need Content-Security-Policy
-    /*headers.push({
-      source: '/(.*)',
-      headers: [
-        {
-          key: 'Content-Security-Policy',
-          value: policies,
-        },
-      ],
-    })*/
-
-    return headers
+      },
+    ]
   },
 }
 
