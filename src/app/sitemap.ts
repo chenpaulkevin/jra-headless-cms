@@ -36,6 +36,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 1,
   }))
 
+  const defaultPage = {
+    url: `${seoUrl}`,
+    lastModified: new Date(),
+    changeFrequency: 'monthly' as const, // Ensure the type matches the expected literals
+    priority: 0.8,
+  }
+
   const blogs = blogPages.docs.map((blog) => ({
     url: `${seoUrl}/blog/${blog.slug}`,
     lastModified: new Date(blog.updatedAt || blog.createdAt),
@@ -51,5 +58,5 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   }))
 
   // Return an array of all sitemap entries
-  return [...pages, ...blogs, ...gallery]
+  return [defaultPage, ...pages, ...blogs, ...gallery]
 }
