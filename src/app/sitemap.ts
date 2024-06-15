@@ -40,14 +40,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     url: `${seoUrl}/blog/${blog.slug}`,
     lastModified: new Date(blog.updatedAt || blog.createdAt),
     changeFrequency: 'monthly' as const, // Ensure the type matches the expected literals
-    priority: 1,
+    priority: 0.8,
   }))
 
   const gallery = designModels.docs.map((model) => ({
     url: `${seoUrl}/gallery/${model.slug}`,
     lastModified: new Date(model.updatedAt || model.createdAt),
     changeFrequency: 'monthly' as const, // Ensure the type matches the expected literals
-    priority: 1,
+    priority: 0.8,
   }))
 
   // Return an array of all sitemap entries
