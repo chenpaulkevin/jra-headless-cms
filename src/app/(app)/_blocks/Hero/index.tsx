@@ -22,7 +22,7 @@ export const Hero: React.FC<HeroProps & { id?: string }> = (props) => {
   } = props
   return (
     <section className="text-blackPrimary my-4">
-      <div className="flex flex-col lg:flex-row w-full h-fit lg:h-[750px] container gap-8 py-4">
+      <div className="flex flex-col lg:flex-row w-full h-fit lg:h-[750px] container gap-8 lg:py-6 py-8">
         <div className="flex flex-col w-full lg:w-1/2 h-fit lg:h-full gap-12 lg:gap-8">
           <div className="flex flex-col w-full h-fit lg:h-3/5 rounded-3xl justify-between gap-4">
             <div className="flex flex-col w-full gap-4">
@@ -49,9 +49,9 @@ export const Hero: React.FC<HeroProps & { id?: string }> = (props) => {
                 {subHeadline}
               </p>
             </div>
-            <div className="flex flex-col md:flex-row gap-8 ">
+            <div className="flex flex-col md:flex-row w-full gap-8">
               {buttons.map((button, index) => (
-                <div key={index}>
+                <div className="w-full lg:w-fit h-fit flex flex-col md:flex-row" key={index}>
                   {button.primaryButton ? (
                     <PrimaryButton
                       url={'/' + (button?.buttonLink as { slug: string })?.slug || ''}

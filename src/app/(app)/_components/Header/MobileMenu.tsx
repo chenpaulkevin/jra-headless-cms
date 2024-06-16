@@ -24,7 +24,7 @@ export default function MobileMenu({ header }: { header: HeaderProps }) {
   const handleMenuClick = useCallback(
     debounce(() => {
       setIsOpen((prevIsOpen) => !prevIsOpen)
-    }, 200),
+    }, 100),
     [],
   )
 

@@ -12,6 +12,7 @@ import type { Metadata } from 'next'
 import PageTransition from '@/app/(app)/_components/PageTransition'
 import TransitionWrapper from './TransitionWrapper'
 
+// Dynamic imports for client-side components
 const SmoothScrolling = dynamic(() => import('@/components/SmoothScrolling'), { ssr: false })
 const ScrollToTop = dynamic(() => import('./_components/ScrollToTop'), { ssr: false })
 
@@ -83,6 +84,7 @@ export async function generateMetadata(): Promise<Metadata> {
   }
 }
 
+// Axios default configurations
 axios.defaults.baseURL =
   process.env.NEXT_PUBLIC_IS_LIVE === 'true'
     ? process.env.NEXT_PUBLIC_HOST_URL_LIVE || 'https://www.jrahomebuilderscorp.com'
