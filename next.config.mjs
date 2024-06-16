@@ -54,10 +54,6 @@ const nextConfig = {
             value: 'no-referrer-when-downgrade', // Control the information sent in the Referer header
           },
           {
-            key: 'Content-Security-Policy',
-            value: "default-src 'self'; script-src 'self'; object-src 'none';", // Define approved sources for content
-          },
-          {
             key: 'Strict-Transport-Security',
             value: 'max-age=31536000; includeSubDomains; preload', // Enforce HTTPS
           },
