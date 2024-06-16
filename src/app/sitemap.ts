@@ -30,18 +30,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   })
   // Map through the pages to create individual sitemap entries
   const pages = webPages.docs.map((page) => ({
-    url: `${seoUrl}/${page.slug}`,
+    url: (page.slug === 'index' ? seoUrl : `${seoUrl}/${page.slug}`) as string,
     lastModified: new Date(page.updatedAt || page.createdAt),
     changeFrequency: 'monthly' as const, // Ensure the type matches the expected literals
     priority: 1,
   }))
-
-  const defaultPage = {
-    url: `${seoUrl}`,
-    lastModified: new Date(),
-    changeFrequency: 'monthly' as const, // Ensure the type matches the expected literals
-    priority: 0.8,
-  }
 
   const blogs = blogPages.docs.map((blog) => ({
     url: `${seoUrl}/blog/${blog.slug}`,
@@ -58,5 +51,5 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   }))
 
   // Return an array of all sitemap entries
-  return [defaultPage, ...pages, ...blogs, ...gallery]
+  return [...pages, ...blogs, ...gallery]
 }
