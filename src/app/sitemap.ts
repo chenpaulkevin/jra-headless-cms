@@ -9,6 +9,10 @@ const seoUrl =
 
 export const revalidate = 3600
 
+function formatDateToSimple(date: Date): string {
+  return date.toISOString().slice(0, 10)
+}
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // Fetch the Payload CMS configuration
   const payload = await getPayloadHMR({ config: await configPromise })
@@ -28,26 +32,29 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     collection: 'designModels',
     depth: 2,
   })
+
   // Map through the pages to create individual sitemap entries
   const pages = webPages.docs.map((page) => ({
     url: (page.slug === 'index' ? seoUrl : `${seoUrl}/${page.slug}`) as string,
-    lastModified: new Date(page.updatedAt || page.createdAt),
-    changeFrequency: 'monthly' as const, // Ensure the type matches the expected literals
-    priority: 1,
+    lastModified: formatDateToSimple(new Date(page.updatedAt || page.createdAt)),
+    changeFrequency: 'yearly' as const,
+    priority: (page.slug === 'index' ? 1 : 0.7) as number,
   }))
 
   const blogs = blogPages.docs.map((blog) => ({
     url: `${seoUrl}/blog/${blog.slug}`,
-    lastModified: new Date(blog.updatedAt || blog.createdAt),
-    changeFrequency: 'monthly' as const, // Ensure the type matches the expected literals
+    lastModified: formatDateToSimple(new Date(blog.updatedAt || blog.createdAt)),
+    changeFrequency: 'monthly' as const,
     priority: 0.8,
+    image: (blog.blogImage as { url: string })?.url || '',
   }))
 
   const gallery = designModels.docs.map((model) => ({
     url: `${seoUrl}/gallery/${model.slug}`,
-    lastModified: new Date(model.updatedAt || model.createdAt),
-    changeFrequency: 'monthly' as const, // Ensure the type matches the expected literals
-    priority: 0.8,
+    lastModified: formatDateToSimple(new Date(model.updatedAt || model.createdAt)),
+    changeFrequency: 'never' as const,
+    priority: 0.5,
+    image: (model.featuredImage as { url: string })?.url || '',
   }))
 
   // Return an array of all sitemap entries

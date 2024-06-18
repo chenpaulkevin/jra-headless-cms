@@ -101,6 +101,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
         <meta charSet="UTF-8" />
         <meta name="language" content="en-US" />
         <link rel="canonical" href="https://www.jrahomebuilderscorp.com" />
+        <link rel="manifest" href="/manifest.json" />
       </Head>
       <body className="flex flex-col justify-between min-h-screen">
         <Header />
