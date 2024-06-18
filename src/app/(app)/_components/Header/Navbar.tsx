@@ -36,7 +36,7 @@ export default function Navbar({ header }: { header: any }) {
                         src={(header?.logo as { url?: string })?.url || ''}
                         fill
                         priority
-                        sizes="156px"
+                        sizes="(min-width: 1040px) 208px, 128px"
                         alt={(header?.logo as { alt?: string })?.alt || ''}
                         className="object-contain"
                       ></Image>

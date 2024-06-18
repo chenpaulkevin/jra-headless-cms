@@ -2,7 +2,13 @@
 import React, { useEffect, useState } from 'react'
 import Image from 'next/image'
 
-export default function ImageLoader({ src, alt }: { src: string; alt: string }) {
+interface ImageLoaderProps {
+  src: string
+  alt: string
+  sizes?: string
+}
+
+const ImageLoader: React.FC<ImageLoaderProps> = ({ src, alt, sizes }) => {
   const [isLoaded, setIsLoaded] = useState(false)
 
   useEffect(() => {}, [isLoaded])
@@ -32,12 +38,14 @@ export default function ImageLoader({ src, alt }: { src: string; alt: string }) 
       <Image
         src={src || ''}
         priority={true}
-        onLoad={() => imageLoad()}
+        onLoad={imageLoad}
         fill
         className={(isLoaded ? '' : 'hidden') + ' z-0 object-cover object-center'}
-        sizes="(min-width: 1540px) 708px, (min-width: 1280px) 604px, (min-width: 1040px) 476px, (min-width: 780px) 720px, (min-width: 680px) 592px, calc(94.44vw - 31px)"
+        sizes={sizes || '(max-width: 480px) 100vw, (max-width: 1024px) 100vw, 80vw'}
         alt={alt || ''}
       />
     </>
   )
 }
+
+export default ImageLoader

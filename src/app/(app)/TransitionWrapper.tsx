@@ -10,8 +10,11 @@ export default function TransitionWrapper({ children }: { children: React.ReactN
         <motion.div
           initial={{ opacity: 1 }}
           animate={{
-            opacity: [0],
+            opacity: 0,
             transition: { delay: 1, duration: 0.4, ease: 'easeInOut' },
+            transitionEnd: {
+              display: 'none',
+            },
           }}
           className="bg-white z-[51] w-[100dvw] h-[100dvh] fixed top-0 pointer-events-none"
         ></motion.div>

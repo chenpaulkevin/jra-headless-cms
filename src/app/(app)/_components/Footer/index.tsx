@@ -47,7 +47,7 @@ export async function Footer() {
                       }
                       fill
                       loading="lazy"
-                      sizes="216px"
+                      sizes="(min-width: 1040px) 224px, 160px"
                       className="object-contain spin"
                     ></Image>
                   </Link>
@@ -66,7 +66,7 @@ export async function Footer() {
                           fill
                           loading="lazy"
                           quality={100}
-                          sizes="216px"
+                          sizes="288px"
                           alt={(footer?.logo as { alt?: string })?.alt || ''}
                           className="object-contain top-0 left-0"
                         ></Image>
@@ -86,7 +86,7 @@ export async function Footer() {
                             fill
                             loading="lazy"
                             className="object-contain"
-                            sizes="(max-width: 768px) 5vw, (max-width: 1200px) 5vw, 5vw"
+                            sizes="40px"
                           ></Image>
                         </div>
                       </Link>

@@ -83,6 +83,7 @@ export const Hero: React.FC<HeroProps & { id?: string }> = (props) => {
             <ImageLoader
               src={mainFeature?.featuredImage?.url || ''}
               alt={mainFeature?.featuredImage?.alt || ''}
+              sizes="(max-width: 480px) 100vw, (max-width: 1024px) 100vw, 50vw"
             />
             <div className="w-fit z-[3]">
               <div className="px-4 py-2 uppercase text-sm bg-blackPrimary text-white rounded-lg">

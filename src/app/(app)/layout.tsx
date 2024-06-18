@@ -7,7 +7,6 @@ import { getPayloadHMR } from '@payloadcms/next/utilities'
 import configPromise from '@payload-config'
 import axios from 'axios'
 import dynamic from 'next/dynamic'
-import Head from 'next/head'
 import type { Metadata } from 'next'
 import PageTransition from '@/app/(app)/_components/PageTransition'
 import TransitionWrapper from './TransitionWrapper'
@@ -96,13 +95,6 @@ axios.defaults.withCredentials = true
 const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   return (
     <html className={montserrat.className} lang="en">
-      <Head>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta charSet="UTF-8" />
-        <meta name="language" content="en-US" />
-        <link rel="canonical" href="https://www.jrahomebuilderscorp.com" />
-        <link rel="manifest" href="/manifest.json" />
-      </Head>
       <body className="flex flex-col justify-between min-h-screen">
         <Header />
         <PageTransition />
